@@ -12,7 +12,7 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            carManager.Add(new Car {CarId=14,BrandId=3,ColorId=1,DailyPrice=2500,ModelYear=2020,Desciription="GTR35" });
+            carManager.Add(new Car {CarId = 15,BrandId=3,ColorId=1,DailyPrice=2500,ModelYear=2020,Desciription="Mustang" });
             //carManager.Add(new Car {CarId=14,BrandId=3,ColorId=1,DailyPrice=0,ModelYear=2020,Desciription="G" });
             //Not : Comment edilmiş kısım hatalı Add metotu kullanımına örnektir.Comment açılıp kontrol edilebilir.
 
@@ -20,7 +20,7 @@ namespace ConsoleUI
 
             foreach (var car in carManager.GetAll())
             {
-                Console.WriteLine(car.Desciription);
+                Console.WriteLine(car.CarName+"//"+car.CarId);
             }
 
 
