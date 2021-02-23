@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,7 +19,18 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            _carDal.Add(car);
+            if (car.Desciription.Length >= 2 && car.DailyPrice>0)
+            {
+                _carDal.Add(car);
+
+            }
+
+            else
+            {
+                Console.WriteLine("Araba ile ilgili açıklama en az iki karakter içermelidir.!\n"+
+                                  "Arabanın günlük fiyatı sıfırdan büyük olmalıdır.!");
+            }
+            
         }
 
         public void Delete(Car car)
@@ -29,6 +41,16 @@ namespace Business.Concrete
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
+        }
+
+        public List<Car> GetCarByCarId(int id)
+        {
+            return _carDal.GetAll(c=>c.CarId == id);
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
         }
 
         public List<Car> GetCarsByBrandId(int id)
@@ -43,7 +65,17 @@ namespace Business.Concrete
 
         public void Update(Car car)
         {
-            _carDal.Update(car);
+            if (car.Desciription.Length >= 2 && car.DailyPrice > 0)
+            {
+                _carDal.Add(car);
+
+            }
+
+            else
+            {
+                Console.WriteLine("Araba ile ilgili açıklama en az iki karakter içermelidir.!\n" +
+                                  "Arabanın günlük fiyatı sıfırdan büyük olmalıdır.!");
+            }
         }
     }
 }
