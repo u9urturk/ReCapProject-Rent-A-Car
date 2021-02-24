@@ -1,0 +1,20 @@
+﻿using Core.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+
+namespace Entities.Concrete
+{
+    public class Rental:IEntity
+    {
+        public int Id { get; set; }
+        public int CarId { get; set; }
+        public int CustomerId { get; set; }
+        public  Nullable<DateTime> RentDate { get; set; }
+        public Nullable<DateTime> ReturnDate { get; set; }
+
+        
+    }
+}

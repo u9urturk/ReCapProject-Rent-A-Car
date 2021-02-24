@@ -24,6 +24,9 @@ namespace DataAccess.Concrete.EntityFramework
                              join co in context.Colors
                              on c.ColorId equals co.ColorId
 
+                             
+                             
+
                             
 
 
