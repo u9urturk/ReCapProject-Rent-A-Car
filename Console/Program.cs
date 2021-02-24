@@ -11,40 +11,56 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            GetCarDetailsTest();  
-            //GetCarAddTest();
+            //GetCarDetailsTest();  
+            GetCarAddTest();
         }
 
         private static void GetCarAddTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-
-            carManager.Add(new Car { BrandId = 2, ColorId = 2, DailyPrice = 500, ModelYear = 2019, Desciription = "Fiesta", CarName = "54DTO35" });
             Console.WriteLine("                            ");
-            Console.WriteLine("YENİ ARAÇ SİSTEME EKLENDİ...");
-            Console.WriteLine("                            ");
-            Console.WriteLine("                            ");
-            Console.WriteLine("                            ");
-            //carManager.Add(new Car {BrandId=3,ColorId=1,DailyPrice=0,ModelYear=2020,Desciription="G",CarName="34SSD54" });
-            //Not : Comment edilmiş kısım hatalı Add metotu kullanımına örnektir.Comment açılıp kontrol edilebilir.
-
-            Console.WriteLine("<<<<<<<<<<<<<<      ARAÇ LİSTESİ VE DETAYLARI GETİRİLİYOR...        >>>>>>>>>>>>>>>>");
-            Console.WriteLine("                            ");
+            Console.WriteLine("YENİ ARAÇ SİSTEME EKLENiYOR...");
             Console.WriteLine("                            ");
             Console.WriteLine("                            ");
             Console.WriteLine("                            ");
 
-            foreach (var car in carManager.GetCarDetails())
+            var result1 = carManager.Add(new Car { BrandId = 6, ColorId = 4, DailyPrice =0, ModelYear = 2019, Desciription = "Yeni ", CarName = "34OOP35" });
+            if (result1.Success==true)
             {
-                Console.WriteLine("Araç ID : " + car.CarId + "\n" +
-                                  "Araç Plakası : " + car.CarName + "\n" +
-                                  "Marka   : " + car.BrandName + "\n" +
-                                  "Renk    : " + car.ColorName + "\n" +
-                                  "Günlük ücret : " + car.DailyPrice + "\n" +
-                                  "Açıklama : " + car.Desciription + "\n" +
-                                  "****************************************************************");
+                Console.WriteLine(result1.Message);
+                Console.WriteLine("<<<<<<<<<<<<<<      ARAÇ LİSTESİ VE DETAYLARI GETİRİLİYOR...        >>>>>>>>>>>>>>>>");
+                Console.WriteLine("                            ");
+                Console.WriteLine("                            ");
+                Console.WriteLine("                            ");
+                Console.WriteLine("                            ");
+                var result = carManager.GetCarDetails();
 
+                if (result.Success == true)
+                {
+
+                    foreach (var car in result.Data)
+                    {
+                        Console.WriteLine("Araç Plakası : " + car.CarName + "\n" +
+                                      "Marka   : " + car.BrandName + "\n" +
+                                      "Renk    : " + car.ColorName + "\n" +
+                                      "Günlük ücret : " + car.DailyPrice + "\n" +
+                                      "Açıklama : " + car.Desciription);
+                    }
+                    Console.WriteLine(result.Message);
+                }
+                else
+                {
+                    Console.WriteLine(result.Message);
+                }
             }
+            else
+            {
+                Console.WriteLine(result1.Message);
+                
+            }
+            
+            
+
             Console.WriteLine("                            ");
             Console.WriteLine("                            ");
             Console.WriteLine("<<<<<<<<<<<<<        HERHANGİ BİR TUŞA BASILARAK LİSTEDEN ÇIKILABİLİR..         >>>>>>>>>>>>>>>>");
@@ -63,16 +79,28 @@ namespace ConsoleUI
 
 
 
+            var result = carManager.GetCarDetails();
 
-
-            foreach (var car in carManager.GetCarDetails())
+            if (result.Success==true)   
             {
-                Console.WriteLine("Araç Plakası : " + car.CarName + "\n" +
+                
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine("Araç Plakası : " + car.CarName + "\n" +
                                   "Marka   : " + car.BrandName + "\n" +
                                   "Renk    : " + car.ColorName + "\n" +
                                   "Günlük ücret : " + car.DailyPrice + "\n" +
                                   "Açıklama : " + car.Desciription);
+                    Console.WriteLine("**********************************************");
+                }
+                Console.WriteLine(result.Message);
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+            
             Console.WriteLine("                            ");
             Console.WriteLine("                            ");
             Console.WriteLine("<<<<<<<<<<<<<        HERHANGİ BİR TUŞA BASILARAK LİSTEDEN ÇIKILABİLİR..         >>>>>>>>>>>>>>>>");
