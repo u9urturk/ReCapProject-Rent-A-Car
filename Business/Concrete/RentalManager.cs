@@ -58,7 +58,11 @@ namespace Business.Concrete
                 _rentalDal.Update(rental);
                 return new SuccessResult(Messages.RentalUpdated);
             }
-            return new ErrorResult(Messages.notRented);
+            else
+            {
+                return new ErrorResult(Messages.notRented);
+            }
+           
         }
     }
 }

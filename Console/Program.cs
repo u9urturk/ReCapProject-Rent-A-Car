@@ -16,7 +16,57 @@ namespace ConsoleUI
             //UserAddAndGetAllTest();
             //CustomerAddAndGetAllTest();
             //RentCarTest();
+            //ReturnedCarTest();
+            //GetAllRentals();
 
+        }
+
+        private static void GetAllRentals()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.GetRentalDetails();
+            if (result.Success == true)
+            {
+                Console.WriteLine(result.Message);
+                foreach (var r in result.Data)
+                {
+                    Console.WriteLine("Kira ID:" + r.Id + "\n" +
+                                           "Müşteri Ad Soyad : " + r.CustomerName + r.CustomerLastName + "\n" +
+                                           "Müşteri Email : " + r.CustomerEmail + "\n" +
+                                           "Şirket Adı : " + r.CustomerCumpany + "\n" +
+                                           "Araç Plaka : " + r.CarName + "\n" +
+                                           "Araç Markası : " + r.CarBrand + "\n" +
+                                           "Araç Model : " + r.CarModel + "\n" +
+                                           "Günlük Kiralama Ücreti : " + r.DailyRentPrice);
+                    Console.WriteLine("************************************************************************");
+                }
+            }
+        }
+
+        private static void ReturnedCarTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.ReturnedCar(new Rental
+            {
+                Id = 1004,
+                CarId = 3,
+                RentDate = new DateTime(2021,02,11),
+                ReturnDate=new DateTime(2022,02,11),
+                
+                
+                
+
+
+
+            });
+            if (result.Success == true)
+            {
+                Console.WriteLine(result.Message);
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
         }
 
         private static void RentCarTest()
@@ -25,8 +75,10 @@ namespace ConsoleUI
             var result = rentalManager.RentCar(new Rental
             {
                 CarId = 3,
-                CustomerId = 2,
-                RentDate = new DateTime(2021, 02, 28),
+                CustomerId = 1,
+                RentDate = new DateTime(2021, 02, 11),
+               
+                
 
 
 
