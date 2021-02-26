@@ -3,6 +3,7 @@ using Business.Constans;
 using Core.Utilities;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -12,14 +13,25 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class RentalManager : IRentalService
+    public class RentalManager : IRentArchiveService,IRentalService
     {
-        
+
         IRentalDal _rentalDal;
+        IRentArchiveDal _rentArchiveDal;
+
+        public RentalManager(IRentArchiveDal rentArchiveDal)
+        {
+            _rentArchiveDal = rentArchiveDal;
+        }
 
         public RentalManager(IRentalDal rentalDal)
         {
             _rentalDal = rentalDal;
+        }
+
+        public IResult AddArchive(RentArchive rentArchive)
+        {
+            throw new NotImplementedException();
         }
 
         public IDataResult<List<Rental>> GetAllRentals()
@@ -36,7 +48,7 @@ namespace Business.Concrete
         {
             var result = _rentalDal.GetAll().FindAll(r=>r.ReturnDate==null);
 
-            if (result.Count > 0 && result.SingleOrDefault(r => r.CarId == rental.CarId)==default(Rental))
+            if (result.Count >= 0 && result.SingleOrDefault(r => r.CarId == rental.CarId)==default(Rental))
             {
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalAdded);
@@ -49,20 +61,47 @@ namespace Business.Concrete
             
         }
 
+        
+
         public IResult ReturnedCar(Rental rental)
         {
             var result = _rentalDal.GetAll().FindAll(r=>r.ReturnDate == null);
+            
 
-            if (result.Count > 0 && result.SingleOrDefault(r=>r.CarId == rental.CarId) != default(Rental))
+            if (result.Count >= 0 && result.SingleOrDefault(r => r.CarId == rental.CarId) != default(Rental))
             {
+                
                 _rentalDal.Update(rental);
+                
+                
+
+                var result1 = _rentalDal.GetAll().FindAll(r => r.ReturnDate != null);
+                if (result1.Count>= 0 && result1.Where(r=> r.ReturnDate!=null)!=default(Rental))
+                {   
+
+                    
+                        _rentalDal.Delete(rental);
+
+                    
+                    
+
+                }
                 return new SuccessResult(Messages.RentalUpdated);
+
+
+
+
             }
             else
             {
                 return new ErrorResult(Messages.notRented);
             }
            
+        }
+
+        IDataResult<List<RentArchiveDetailDto>> IRentArchiveService.GetRentalDetails()
+        {
+            throw new NotImplementedException();
         }
     }
 }

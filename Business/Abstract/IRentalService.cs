@@ -12,7 +12,7 @@ namespace Business.Abstract
         IResult RentCar(Rental rental);
         IResult ReturnedCar(Rental rental);
         IDataResult<List<Rental>> GetAllRentals();
-        IDataResult<List<RentalDetailDto>> GetRentalDetails( );
+        IDataResult<List<RentalDetailDto>> GetRentalDetails();
             
     }
 }

@@ -16,8 +16,9 @@ namespace ConsoleUI
             //UserAddAndGetAllTest();
             //CustomerAddAndGetAllTest();
             //RentCarTest();
-            //ReturnedCarTest();
+            ReturnedCarTest();
             //GetAllRentals();
+           
 
         }
 
@@ -48,10 +49,11 @@ namespace ConsoleUI
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             var result = rentalManager.ReturnedCar(new Rental
             {
-                Id = 1004,
-                CarId = 3,
-                RentDate = new DateTime(2021,02,11),
-                ReturnDate=new DateTime(2022,02,11),
+                Id = 3004,
+                CarId=1,
+                RentDate= new DateTime(2021,02,11),
+                ReturnDate=new DateTime(2022,02,11)
+                
                 
                 
                 
@@ -74,16 +76,17 @@ namespace ConsoleUI
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             var result = rentalManager.RentCar(new Rental
             {
-                CarId = 3,
+                CarId = 1,
                 CustomerId = 1,
                 RentDate = new DateTime(2021, 02, 11),
-               
-                
+                ReturnDate = null
 
 
 
 
-            });
+
+
+            }); ;
 
             if (result.Success == true)
             {
