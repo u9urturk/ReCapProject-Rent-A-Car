@@ -10,11 +10,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Common;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Business.Concrete
 {
+    
+     
     public class RentalManager : IRentArchiveService,IRentalService
     {
+        
+        
 
         IRentalDal _rentalDal;
         IRentArchiveDal _rentArchiveDal;
@@ -28,6 +35,7 @@ namespace Business.Concrete
         {
             _rentalDal = rentalDal;
         }
+
 
         public IResult AddArchive(RentArchive rentArchive)
         {
@@ -71,9 +79,17 @@ namespace Business.Concrete
             if (result.Count >= 0 && result.SingleOrDefault(r => r.CarId == rental.CarId) != default(Rental))
             {
                 
-                _rentalDal.Update(rental);
+                _rentalDal.UpdateAndMove(rental);
+
                 
                 
+                
+
+                
+                
+
+
+
 
                 var result1 = _rentalDal.GetAll().FindAll(r => r.ReturnDate != null);
                 if (result1.Count>= 0 && result1.Where(r=> r.ReturnDate!=null)!=default(Rental))
@@ -81,6 +97,7 @@ namespace Business.Concrete
 
                     
                         _rentalDal.Delete(rental);
+
 
                     
                     

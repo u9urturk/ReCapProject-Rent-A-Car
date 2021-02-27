@@ -47,12 +47,13 @@ namespace ConsoleUI
         private static void ReturnedCarTest()
         {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            var result = rentalManager.ReturnedCar(new Rental
+            var result = rentalManager.ReturnedCar(new Rental 
             {
-                Id = 3004,
-                CarId=1,
-                RentDate= new DateTime(2021,02,11),
-                ReturnDate=new DateTime(2022,02,11)
+                Id = 4009,
+                CarId=17,
+                RentDate= new DateTime(2021,02,22),
+                ReturnDate=new DateTime(2022,02,11),
+                CustomerId =1
                 
                 
                 

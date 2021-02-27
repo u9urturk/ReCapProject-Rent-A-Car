@@ -105,5 +105,10 @@ namespace DataAccess.Concrete.InMemory
         {
             throw new NotImplementedException();
         }
+
+        public void UpdateAndMove(Car entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

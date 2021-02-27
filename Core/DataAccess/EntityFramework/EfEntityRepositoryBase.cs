@@ -66,13 +66,35 @@ namespace Core.DataAccess.EntityFramework
                     var updatedEntity = context.Entry(entity);
                     updatedEntity.State = EntityState.Modified;
                     context.SaveChanges();
-                
 
+
+              
                 
             }
 
+            
 
 
+
+        }
+
+        public void UpdateAndMove(TEntity entity)
+        {
+            using (TContext context = new TContext())
+            {
+
+                var updatedEntity = context.Entry(entity);
+                updatedEntity.State = EntityState.Modified;
+                context.SaveChanges();
+
+
+                context.Database.ExecuteSqlRaw(
+
+                    "INSERT INTO RentArchives(Id,CarId,CustomerId,RentDate,ReturnDate) SELECT Id,CarId,CustomerId,RentDate,ReturnDate FROM Rentals WHERE Rentals.ReturnDate IS NOT NULL "
+
+                    );
+
+            }
         }
     }
 }

@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
+using System.Data.SqlTypes;
+
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -12,6 +15,7 @@ namespace DataAccess.Concrete.EntityFramework
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyDatabase;Trusted_Connection=true");
+            
         }
 
         public DbSet<Car> Cars { get; set; }

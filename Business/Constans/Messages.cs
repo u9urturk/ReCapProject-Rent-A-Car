@@ -29,7 +29,7 @@ namespace Business.Constans
         public static string RentalList = "KİRALANAN ARAÇ LİSTESİ ";
         
         public static string RentalUpdated = "KİRALIK ARACIN DÖNÜŞÜ GERÇEKLEŞTİ "+"\n"+
-                                             "KİRA BİLGİSİ KİRA ARŞİVİNE KAYIT EDİLDİ..";
+                                             "KİRA BİLGİSİ KİRA ARŞİVİNE TAŞINDI..";
         public static string NullYes =    "iSTENİLEN ARAÇ ŞUAN KİRALANMIŞ DURUMDA"+"\n"+
                                           "DAHA SONRA TEKRAR DENEYİN...";
         public static string notRented = "SİSTEMDE GİRİLEN BİLGİLERE AİT BİR ARAÇ BULUNMAMAKTA";
