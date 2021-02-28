@@ -16,10 +16,23 @@ namespace ConsoleUI
             //UserAddAndGetAllTest();
             //CustomerAddAndGetAllTest();
             //RentCarTest();
-            ReturnedCarTest();
+            //ReturnedCarTest();
             //GetAllRentals();
-           
+            //CarAddTest();
+            //CarDeleteTest();
+            
+        }
 
+        private static void CarDeleteTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            carManager.Delete(new Car { CarId = 15 });
+        }
+
+        private static void CarAddTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            carManager.Add(new Car { BrandId = 1, CarId = 16, CarName = "d", ColorId = 1, DailyPrice = 1, ModelYear = 1999 });
         }
 
         private static void GetAllRentals()

@@ -34,5 +34,9 @@ namespace Business.Constans
                                           "DAHA SONRA TEKRAR DENEYİN...";
         public static string notRented = "SİSTEMDE GİRİLEN BİLGİLERE AİT BİR ARAÇ BULUNMAMAKTA";
         public static string RentArchiveList = "KİRALIK ARAÇ ARŞİVİ";
+
+        internal static string Added = "EKLENDİ";
+        internal static string Deleted = "SİLİNDİ";
+        internal static string Updated = "GÜNCELLENDİ";
     }
 }

@@ -18,29 +18,20 @@ namespace Business.Concrete
 {
     
      
-    public class RentalManager : IRentArchiveService,IRentalService
+    public class RentalManager : IRentalService
     {
         
         
 
         IRentalDal _rentalDal;
-        IRentArchiveDal _rentArchiveDal;
+       
 
-        public RentalManager(IRentArchiveDal rentArchiveDal)
-        {
-            _rentArchiveDal = rentArchiveDal;
-        }
 
         public RentalManager(IRentalDal rentalDal)
         {
             _rentalDal = rentalDal;
         }
 
-
-        public IResult AddArchive(RentArchive rentArchive)
-        {
-            throw new NotImplementedException();
-        }
 
         public IDataResult<List<Rental>> GetAllRentals()
         {
@@ -81,15 +72,6 @@ namespace Business.Concrete
                 
                 _rentalDal.UpdateAndMove(rental);
 
-                
-                
-                
-
-                
-                
-
-
-
 
                 var result1 = _rentalDal.GetAll().FindAll(r => r.ReturnDate != null);
                 if (result1.Count>= 0 && result1.Where(r=> r.ReturnDate!=null)!=default(Rental))
@@ -116,9 +98,6 @@ namespace Business.Concrete
            
         }
 
-        IDataResult<List<RentArchiveDetailDto>> IRentArchiveService.GetRentalDetails()
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }
