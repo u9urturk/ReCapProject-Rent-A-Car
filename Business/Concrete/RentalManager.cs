@@ -13,6 +13,8 @@ using System.Text;
 using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using Core.Aspects.Autofac.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -42,15 +44,19 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetDetails(),Messages.RentalList);
         }
-
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult RentCar(Rental rental)
         {
             var result = _rentalDal.GetAll().FindAll(r=>r.ReturnDate==null);
 
             if (result.Count >= 0 && result.SingleOrDefault(r => r.CarId == rental.CarId)==default(Rental))
             {
+
+                rental.RentDate = DateTime.Now;
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalAdded);
+
+                
             }
             else
             {
@@ -97,6 +103,10 @@ namespace Business.Concrete
             }
            
         }
+
+        //Business Rules
+
+       
 
       
     }
