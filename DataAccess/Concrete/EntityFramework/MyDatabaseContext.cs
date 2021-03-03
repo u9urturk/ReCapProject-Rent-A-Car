@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.SqlTypes;
-
+using Core.Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -26,7 +26,8 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Rental> Rentals { get; set; }
         public DbSet<RentArchive> RentArchives { get; set; }
         public DbSet<CarImage> CarImages { get; set; }
-
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     }
 
 }

@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,7 +21,10 @@ namespace WepAPI.Controllers
             _rentalService = rentalService;
         }
 
+        
         [HttpPost("rentcar")]
+        
+        
         public IActionResult RentCar(Rental rental)
         {
             var result = _rentalService.RentCar(rental);
@@ -43,6 +47,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpGet("getrentaldetails")]
+        
         public IActionResult GetRentalsDetails()
         {
             var result = _rentalService.GetRentalDetails();

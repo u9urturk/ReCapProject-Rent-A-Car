@@ -1,5 +1,6 @@
 ﻿
 using Business.Concrete;
+using Core.Entities.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -150,32 +151,7 @@ namespace ConsoleUI
             }
         }
 
-        private static void UserAddAndGetAllTest()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            var result = userManager.Add(new User { FirstName = "Seda", LastName = "Seker", Email = "seda@mail.com", Password = "4444" });
-            if (result.Success == true)
-            {
-                Console.WriteLine(result.Message);
-                var result1 = userManager.GetAll();
-                if (result1.Success == true)
-                {
-                    foreach (var user in result1.Data)
-                    {
-                        Console.WriteLine("Kullanıcı ID : " + user.Id + "\n" +
-                                          "Kullanıcı Adı: " + user.FirstName + "\n" +
-                                          "Kullanıcı Soyadı : " + user.LastName + "\n" +
-                                          "Kullanıcı Email : " + user.Email + "\n" +
-                                          "Kullanıcı Şifre : " + user.Password);
-                        Console.WriteLine("************************************************************");
-                        
-
-                    }
-
-                    
-                }
-            }
-        }
+       
 
        
 
