@@ -34,7 +34,6 @@ namespace Core.Aspects.Autofac.Performance
             {
                 //Performans bilgisi belirtilen mail hesabına iletilecek.
                 SendMail sendMail = new SendMail();
-                sendMail.Send("dened9761@gmail.com","password","ADMIN","l4rnxy@gmail.com","Sistem Performansı",
                      $"Performance : {invocation.Method.DeclaringType.FullName}.{invocation.Method.Name}-->{_stopwatch.Elapsed.Seconds}",
                      "smtp.gmail.com",587);
 
