@@ -40,13 +40,13 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(),Messages.GetAllDetails);
         }
-
+        [SecuredOperation("user,admin")]
         public IDataResult<List<RentalDetailDto>> GetRentalDetails()
         {
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetDetails(),Messages.RentalList);
         }
 
-        [SecuredOperation("rental.add,admin")]
+        [SecuredOperation("admin,rentcar.rentals")]
         [ValidationAspect(typeof(RentalValidator))]
         public IResult RentCar(Rental rental)
         {
@@ -54,7 +54,7 @@ namespace Business.Concrete
 
             if (result.Count >= 0 && result.SingleOrDefault(r => r.CarId == rental.CarId)==default(Rental))
             {
-
+                
                 rental.RentDate = DateTime.Now;
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalAdded);
@@ -70,7 +70,7 @@ namespace Business.Concrete
         }
 
         
-
+        [SecuredOperation("admin")]
         public IResult ReturnedCar(Rental rental)
         {
             var result = _rentalDal.GetAll().FindAll(r=>r.ReturnDate == null);

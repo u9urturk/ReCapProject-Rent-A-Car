@@ -90,7 +90,8 @@ namespace Core.DataAccess.EntityFramework
                 updatedEntity.State = EntityState.Modified;
                 context.SaveChanges();
 
-
+                //Bu komut Rentals tablosunda belirtilen güncelleme işlemi yapıldıktan sonra işlem sonucunun kopyasını RentArchives tablosuna kayıt etmek amacı ile yazılmıştır.
+                
                 context.Database.ExecuteSqlRaw(
 
                     "INSERT INTO RentArchives(Id,CarId,CustomerId,RentDate,ReturnDate) SELECT Id,CarId,CustomerId,RentDate,ReturnDate FROM Rentals WHERE Rentals.ReturnDate IS NOT NULL "
