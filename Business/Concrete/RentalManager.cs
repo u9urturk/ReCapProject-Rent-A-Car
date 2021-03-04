@@ -16,6 +16,7 @@ using System.ComponentModel.DataAnnotations;
 using Core.Aspects.Autofac.Validation;
 using Business.ValidationRules.FluentValidation;
 using Business.BusinessAspect.Autofac;
+using Core.Aspects.Autofac.Cache;
 
 namespace Business.Concrete
 {
@@ -35,12 +36,22 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
+       
+        public IResult AddTransactionalTest(Rental rental)
+        {
+            _rentalDal.Add(rental);
+            _rentalDal.UpdateAndMove(rental);
+            return new SuccessResult(Messages.UnexpectedError);
+        }
 
+        [SecuredOperation("admin")]
+        [CacheAspect(duration: 10)]
         public IDataResult<List<Rental>> GetAllRentals()
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(),Messages.GetAllDetails);
         }
-        [SecuredOperation("user,admin")]
+        [SecuredOperation("admin")]
+        [CacheAspect]
         public IDataResult<List<RentalDetailDto>> GetRentalDetails()
         {
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetDetails(),Messages.RentalList);
@@ -48,6 +59,7 @@ namespace Business.Concrete
 
         [SecuredOperation("admin,rentcar.rentals")]
         [ValidationAspect(typeof(RentalValidator))]
+        [CacheRemoveAspect("IRentalService.Get")]
         public IResult RentCar(Rental rental)
         {
             var result = _rentalDal.GetAll().FindAll(r=>r.ReturnDate==null);
@@ -69,7 +81,7 @@ namespace Business.Concrete
             
         }
 
-        
+        [CacheRemoveAspect("IRentalService.Get")]
         [SecuredOperation("admin")]
         public IResult ReturnedCar(Rental rental)
         {

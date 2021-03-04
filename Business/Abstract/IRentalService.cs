@@ -13,6 +13,7 @@ namespace Business.Abstract
         IResult ReturnedCar(Rental rental);
         IDataResult<List<Rental>> GetAllRentals();
         IDataResult<List<RentalDetailDto>> GetRentalDetails();
-            
+        IResult AddTransactionalTest(Rental rental);
+
     }
 }
