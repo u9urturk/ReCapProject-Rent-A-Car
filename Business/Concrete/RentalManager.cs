@@ -17,6 +17,7 @@ using Core.Aspects.Autofac.Validation;
 using Business.ValidationRules.FluentValidation;
 using Business.BusinessAspect.Autofac;
 using Core.Aspects.Autofac.Cache;
+using Core.Aspects.Autofac.Performance;
 
 namespace Business.Concrete
 {
@@ -44,6 +45,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UnexpectedError);
         }
 
+        // NOT : PerformanceAspectler tüm metotlara tanımlanmıştır-- İlgili kod AspectInterceptorSelector Class'ı içerisindedir.
         [SecuredOperation("admin")]
         [CacheAspect(duration: 10)]
         public IDataResult<List<Rental>> GetAllRentals()
@@ -92,7 +94,12 @@ namespace Business.Concrete
             {
                 
                 _rentalDal.UpdateAndMove(rental);
-
+                // UpdateAndMove metodu diğer Update metodundan farklı olarak Rentals tablosunda yapılan güncellemenin bir kopyasını
+                //EfEntityRepositoryBase class'ı içerisinde yazdığım SQL komutu ile RentArchives tablosunda oluşturuyor
+                //Sonrasında bir sonraki kod bloğu çalışıyor ve Rentals tablosunda ReturnDate'i null olmayan değerleri bulup siliyor.
+                //Sonuç olarak Rentals tablomuzda sadece kira süreci devam eden araçların listesi tutuluyor.Kira süreci tamamlanmış araçların bilgileri ise 
+                //Farklı bir tabloda Arşiv adı altında tutuluyor.
+                
 
                 var result1 = _rentalDal.GetAll().FindAll(r => r.ReturnDate != null);
                 if (result1.Count>= 0 && result1.Where(r=> r.ReturnDate!=null)!=default(Rental))
