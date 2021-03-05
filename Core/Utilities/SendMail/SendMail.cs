@@ -8,7 +8,7 @@ namespace Core.Utilities.SendMail
 {
     public  class SendMail:ISendMail
     {
-        public   bool Send(string MailIcerik)
+        public   bool Send(string MailContent)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace Core.Utilities.SendMail
                 mail.To.Add("l4rnxy@gmail.com"); // mail gönderilecek adresi belirledik
                 mail.Subject = "<->  Sistem Performansı <->"; // mailin konusu
                 
-                mail.Body = MailIcerik; // mailin içeriği
+                mail.Body = MailContent; // mailin içeriği
                 
                
                 // göndereceğimiz maili hazırladık.
