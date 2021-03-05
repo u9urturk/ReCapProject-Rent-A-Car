@@ -22,22 +22,15 @@ using Core.Aspects.Autofac.Performance;
 namespace Business.Concrete
 {
     
-     
+     [SecuredOperation("Admin")]
     public class RentalManager : IRentalService
-    {
-        
-        
-
+    { 
         IRentalDal _rentalDal;
-       
-
-
         public RentalManager(IRentalDal rentalDal)
         {
             _rentalDal = rentalDal;
         }
 
-       
         public IResult AddTransactionalTest(Rental rental)
         {
             _rentalDal.Add(rental);
@@ -46,20 +39,20 @@ namespace Business.Concrete
         }
 
         // NOT : PerformanceAspectler tüm metotlara tanımlanmıştır-- İlgili kod AspectInterceptorSelector Class'ı içerisindedir.
-        [SecuredOperation("admin")]
+        
         [CacheAspect(duration: 10)]
         public IDataResult<List<Rental>> GetAllRentals()
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(),Messages.GetAllDetails);
         }
-        [SecuredOperation("admin")]
+        [SecuredOperation("User")]
         [CacheAspect]
         public IDataResult<List<RentalDetailDto>> GetRentalDetails()
         {
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetDetails(),Messages.RentalList);
         }
 
-        [SecuredOperation("admin,rentcar.rentals")]
+        [SecuredOperation("User")]
         [ValidationAspect(typeof(RentalValidator))]
         [CacheRemoveAspect("IRentalService.Get")]
         public IResult RentCar(Rental rental)
@@ -73,18 +66,15 @@ namespace Business.Concrete
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalAdded);
 
-                
             }
             else
             {
                 return new ErrorResult(Messages.NullYes);
             }
-           
-            
-        }
 
+        }
+        [SecuredOperation("User")]
         [CacheRemoveAspect("IRentalService.Get")]
-        [SecuredOperation("admin")]
         public IResult ReturnedCar(Rental rental)
         {
             var result = _rentalDal.GetAll().FindAll(r=>r.ReturnDate == null);
@@ -97,26 +87,16 @@ namespace Business.Concrete
                 // UpdateAndMove metodu diğer Update metodundan farklı olarak Rentals tablosunda yapılan güncellemenin bir kopyasını
                 //EfEntityRepositoryBase class'ı içerisinde yazdığım SQL komutu ile RentArchives tablosunda oluşturuyor
                 //Sonrasında bir sonraki kod bloğu çalışıyor ve Rentals tablosunda ReturnDate'i null olmayan değerleri bulup siliyor.
-                //Sonuç olarak Rentals tablomuzda sadece kira süreci devam eden araçların listesi tutuluyor.Kira süreci tamamlanmış araçların bilgileri ise 
+                //Sonuç olarak Rentals tablomuzda sadece kira süreci devam eden araçların listesi tutuluyor.Kira süreci tamamlanmış kira bilgileri ise 
                 //Farklı bir tabloda Arşiv adı altında tutuluyor.
                 
 
                 var result1 = _rentalDal.GetAll().FindAll(r => r.ReturnDate != null);
                 if (result1.Count>= 0 && result1.Where(r=> r.ReturnDate!=null)!=default(Rental))
                 {   
-
-                    
                         _rentalDal.Delete(rental);
-
-
-                    
-                    
-
                 }
                 return new SuccessResult(Messages.RentalUpdated);
-
-
-
 
             }
             else
@@ -125,11 +105,6 @@ namespace Business.Concrete
             }
            
         }
-
-        //Business Rules
-
-       
-
       
     }
 }

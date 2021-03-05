@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspect.Autofac;
 using Business.Constans;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -9,6 +10,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
+    [SecuredOperation("Admin")]
     public class BrandManager : IBrandService
     {
         IBrandDal _brandDal;
@@ -30,6 +32,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Deleted);
         }
 
+        
         public IDataResult<List<Brand>> GetAll()
         {
             

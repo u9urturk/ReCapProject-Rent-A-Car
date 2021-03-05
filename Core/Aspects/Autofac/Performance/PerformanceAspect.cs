@@ -30,15 +30,18 @@ namespace Core.Aspects.Autofac.Performance
 
         protected override void OnAfter(IInvocation invocation)
         {
-            if (_stopwatch.Elapsed.TotalMilliseconds>_interval)
+            if (_stopwatch.Elapsed.Seconds>_interval)
             {
                 //Performans bilgisi belirtilen mail hesabına iletilecek.
                 SendMail sendMail = new SendMail();
 
-                sendMail.Send("dened9761@gmail.com","password","ADMIN","l4rnxy@gmail.com","Sistem Performansı",
-
-                     $"Performance : {invocation.Method.DeclaringType.FullName}.{invocation.Method.Name}-->{_stopwatch.Elapsed.TotalMilliseconds}",
-                     "smtp.gmail.com",587);
+                sendMail.Send("dened9761@gmail.com",
+                               "password",
+                               "ADMIN",
+                               "l4rnxy@gmail.com",
+                               "Sistem Performansı",
+                               $"Performance : {invocation.Method.DeclaringType.FullName}.{invocation.Method.Name}-->{_stopwatch.Elapsed.TotalSeconds}",
+                               "smtp.gmail.com",587);
 
 
             }

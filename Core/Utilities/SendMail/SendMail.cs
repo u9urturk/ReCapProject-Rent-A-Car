@@ -17,7 +17,7 @@ namespace Core.Utilities.SendMail
 
                 System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage(); // yeni mail oluşturduk
                 mail.From = new System.Net.Mail.MailAddress(GMailHesabi,GMailUnvan); // maili gönderecek hesabı belirttik
-                mail.To.Add(AMailHesabi ); // mail gönderilecek adres
+                mail.To.Add(AMailHesabi ); // mail gönderilecek adresi belirledik
                 mail.Subject = MailKonu; // mailin konusu
                 
                 mail.Body = MailIcerik; // mailin içeriği
@@ -30,7 +30,7 @@ namespace Core.Utilities.SendMail
                 smtp.EnableSsl = true; // ssl kullanımına izin verdik
                 smtp.Credentials = cred; // server üzerindeki oturumumuzu yukarıda belirttiğimiz NetworkCredential üzerinden sağladık.
                 smtp.Send(mail); // mailimizi gönderdik.
-                // smtp yani Simple Mail Transfer Protocol üzerinden maili gönderiyoruz.
+               
 
                 return true;
             }

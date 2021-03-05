@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspect.Autofac;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -16,6 +17,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
+    [SecuredOperation("Admin")]
     public class CarImageManager : ICarImageService
     {
         ICarImageDal _carImageDal;
@@ -29,12 +31,12 @@ namespace Business.Concrete
         public IResult Add(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfImageLimitExceeded(carImage.CarId));
-            if (result!=null)
+            if (result != null)
             {
                 return result;
             }
 
-            
+
             carImage.ImagePath = FileHelper.Add(file);
             carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
@@ -43,24 +45,26 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Delete(CarImage carImage)
-        { 
-       
+        {
+
             FileHelper.Delete(carImage.ImagePath);
             _carImageDal.Delete(carImage);
             return new SuccessResult();
         }
-
+        
         [ValidationAspect(typeof(CarImageValidator))]
         public IDataResult<CarImage> Get(int id)
         {
             return new SuccessDataResult<CarImage>(_carImageDal.Get(i => i.Id == id));
         }
 
+        
         public IDataResult<List<CarImage>> GetAll()
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
 
+        [SecuredOperation("User")]
         public IDataResult<List<CarImage>> GetImagesByCarId(int id)
         {
             return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(id));

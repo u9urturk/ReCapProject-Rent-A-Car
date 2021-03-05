@@ -24,6 +24,7 @@ namespace Core.Utilities.Interceptors
             classAttributes.AddRange(methodAttributes);
             classAttributes.Add(new PerformanceAspect(5));
             
+            
 
             return classAttributes.OrderBy(x => x.Priority).ToArray();
         }

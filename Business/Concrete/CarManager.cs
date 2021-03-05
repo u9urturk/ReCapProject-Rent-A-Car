@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspect.Autofac;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -15,6 +16,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
+    [SecuredOperation("Admin")]
     public class CarManager : ICarService
     {
         ICarDal _carDal;
@@ -60,6 +62,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Car>(_carDal.Get(c=>c.CarId == id));
         }
 
+        [SecuredOperation("User")]
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>( _carDal.GetCarDetails(),Messages.CarList);
