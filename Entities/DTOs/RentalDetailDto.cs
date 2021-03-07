@@ -13,7 +13,7 @@ namespace Entities.DTOs
         public string CarName { get; set; }
         public string CustomerName { get; set; }
         public string CustomerLastName { get; set; }
-        public string CustomerCumpany { get; set; }
+        public string CustomerCompany { get; set; }
         public string CarBrand { get; set; }
         public string CarModel { get; set; }
         public string CustomerEmail { get; set; }
