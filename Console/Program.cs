@@ -328,7 +328,7 @@ namespace ConsoleUI
             GetAllColor(colorManager);
 
             Console.WriteLine(" ");
-            Console.Write("         Silinecek Renk ID");
+            Console.Write("         Silinecek Renk ID : ");
             int colorDeleteById = Convert.ToInt32(Console.ReadLine());
             colorManager.Delete(colorManager.GetById(colorDeleteById).Data);
         }
@@ -341,7 +341,7 @@ namespace ConsoleUI
             GetAllBrand(brandManager);
 
             Console.WriteLine(" ");
-            Console.Write("          Silinecek Marka ID");
+            Console.Write("          Silinecek Marka ID : ");
             int brandDeleteById = Convert.ToInt32(Console.ReadLine());
             brandManager.Delete(brandManager.GetById(brandDeleteById).Data);
 
