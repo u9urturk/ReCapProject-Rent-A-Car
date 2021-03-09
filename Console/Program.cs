@@ -21,6 +21,10 @@ namespace ConsoleUI
             ColorManager colorManager = new ColorManager(new EfColorDal());
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             UserManager userManager = new UserManager(new EfUserDal());
+            OperationClaimManager operationClaimsManager = new OperationClaimManager(new EfOperationClaim());
+            UserOperationClaimManager userOperationClaimManager = new UserOperationClaimManager(new EfUserOperationClaimDal());
+            
+
             
             
 
@@ -35,11 +39,12 @@ namespace ConsoleUI
                 Console.Write
                     (
                     "            <<<<<<<<<<<<Rent A Car>>>>>>>>>>>>    \n *************************************************\n"+
-                    "         Sisteme Hoş Geldiniz , Lütfen Yapmak İstediğiniz İşlemi Belirtin\n" +
+                    "         Sisteme Hoş Geldiniz , Test Etmek İstediğiniz Metot Kategorisini Seçiniz\n" +
                     "       1.Araç İşlemleri\n"+
                     "       2.Kira İşlemleri\n"+
                     "       3.Kullanıcı İşlemleri\n"+
-                    "       4.Çıkış\n"+
+                    "       4.Yetki İşlemleri\n" + 
+                    "       5.Çıkış\n"+
                     "           Seçiminiz : "              
 
                     );
@@ -49,8 +54,9 @@ namespace ConsoleUI
                 if (number == 1)
                 {
                     Console.Write
-                        (
+                        (  
                         "        <<<<<<<<<<<<Rent A Car>>>>>>>>>>>>    \n *************************************************\n"+
+                        "    <<<<  METOTLAR   >>>\n************************************************\n"+   
                         "       1.Araba Ekle\n"+
                         "       2.Araba Sil\n"+
                         "       3.Renk Ekle\n"+
@@ -128,7 +134,8 @@ namespace ConsoleUI
                     Console.Write
                        (
                        "        <<<<<<<<<<<<Rent A Car>>>>>>>>>>>>    \n *************************************************\n" +
-                       "       1.Kiralık Arabaları Listele\n"+
+                       "    <<<<  METOTLAR   >>>\n************************************************\n" +
+                       "       1.Kiralık Arabaları Listele\n" +
                        "       2.Araba Kirala\n"+   
                        "       3.Ana Menüye Dön\n" +
                        "       4.Çıkış\n"+
@@ -166,9 +173,13 @@ namespace ConsoleUI
                 {
                     Console.Write
                        (
-                       "        <<<<<<<<<<<<Rent A Car>>>>>>>>>>>>    \n *************************************************\n" +       
-                       "       1.Ana Menüye Dön\n" +
-                       "       2.Çıkış\n"+
+                       "        <<<<<<<<<<<<Rent A Car>>>>>>>>>>>>    \n *************************************************\n" +
+                       "    <<<<  METOTLAR   >>>\n************************************************\n" +
+                       "       1.Kullanıcıları Listele\n" +
+                       "       2.Kullanıcıya Yetki Ata \n"+
+                       "       3.Kullanıcı Yetkisini Sil\n"+
+                       "       4.Ana Menüye Dön\n" +
+                       "       5.Çıkış\n"+
                        "           Seçiminiz : "
                        );
                     int number4 = Convert.ToInt32(Console.ReadLine());
@@ -177,22 +188,85 @@ namespace ConsoleUI
                     switch (number4)
                     {
                         case 1:
+                            GetUsers(userOperationClaimManager);
+                            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+                            Console.ReadKey();
                             break;
 
                         case 2:
+                            AddUserClaim(userOperationClaimManager,operationClaimsManager);
+                            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+                            Console.ReadKey();
+                            break;
+
+                        case 3:
+                            DeleteUserClaim(userOperationClaimManager);
+                            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+                            Console.ReadKey();
+                            break;
+
+
+                        case 4:
+                            break;
+
+                        case 5:
                             exit = false;
                             break;
                     }
                 }
 
+                if (number == 4)
+                {
+                    Console.Write
+                       (
+                       "        <<<<<<<<<<<<Rent A Car>>>>>>>>>>>>    \n *************************************************\n" +
+                       "    <<<<  METOTLAR   >>>\n************************************************\n" +
+                       "       1.Yetki Ekle \n" +
+                       "       2.Yetki Sil\n" +   
+                       "       3.Yetkileri Listele\n"+
+                       "       4.Ana Menüye Dön\n" +
+                       "       5.Çıkış\n" +
+                       "           Seçiminiz : "
+                       );
+                    int number4 = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("\n_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n");
+
+                    switch (number4)
+                    {
+                        case 1:
+                            ClaimAdd(operationClaimsManager);
+                            break;
+
+                        case 2:
+                            ClaimDelete(operationClaimsManager);
+                            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+                            Console.ReadKey();
+                            break;
+
+                        case 3:
+                            GetAllClaims(operationClaimsManager);
+                            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+                            Console.ReadKey();
+                            break;
+
+                        case 4:
+                            break;
+
+                        case 5:
+                            exit = false;
+                            break;
+
+
+                    }
+                }
                 switch (number)
                 {
-                    case 4:
+                    case 5:
                         exit = false;
                         break;
                         
                 }
-                                                                  
+
             }
 
         }
@@ -286,7 +360,8 @@ namespace ConsoleUI
         {
             foreach (var color in colorManager.GetAll().Data)
             {
-                Console.WriteLine($"Renk ID : {color.ColorId}\n Renk Ismi : {color.ColorName}");
+                Console.WriteLine($"     Renk ID : {color.ColorId}\n" +
+                                  $"     Renk Ismi : {color.ColorName}");
             }
         }
 
@@ -294,7 +369,8 @@ namespace ConsoleUI
         {
             foreach (var brand in brandManager.GetAll().Data)
             {
-                Console.WriteLine($" Marka ID : {brand.BrandId}\n Marka Ismi : {brand.BrandName}");
+                Console.WriteLine($"     Marka ID : {brand.BrandId}\n" +
+                                  $"     Marka Ismi : {brand.BrandName}");
             }
         }
 
@@ -302,7 +378,10 @@ namespace ConsoleUI
         {
             foreach (var car in carManager.GetCarDetails().Data)
             {
-                Console.WriteLine($"Araç Id : {car.CarId}\n Marka : {car.BrandName}\n Model : {car.Desciription}\n Renk : {car.ColorName}\n");
+                Console.WriteLine($"     Araç Id : {car.CarId}\n" +
+                                  $"     Marka : {car.BrandName}\n " +
+                                  $"     Model : {car.Desciription}\n " +
+                                  $"     Renk : {car.ColorName}\n");
             }
         }
 
@@ -347,6 +426,85 @@ namespace ConsoleUI
 
 
         }
+
+        private static void GetAllClaims(OperationClaimManager operationClaimManager)
+        {
+            foreach (var claim in operationClaimManager.GetAllClaims().Data)
+            {
+                Console.WriteLine($"     Yetki ID : {claim.Id}\n" +
+                                  $"     Yetki Ismi : {claim.Name}");
+            }
+        }
+
+        private static void ClaimAdd(OperationClaimManager operationClaimsManager)
+        {
+            Console.Write("    Yetki Ünvan ismini Belirtiniz : ");
+            string claimName = Console.ReadLine();
+
+            OperationClaim claimadd = new OperationClaim {Name = claimName  };
+            operationClaimsManager.AddClaim(claimadd);
+            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+            Console.ReadKey();
+        }
+
+        private static void ClaimDelete(OperationClaimManager operationClaimManager)
+        {
+            Console.WriteLine("    Yetkiler Getiriliyor , Silmek İstediğiniz Yetkinin ID'sini Seçiniz.  ");
+            GetAllClaims(operationClaimManager);
+            Console.WriteLine(" ");
+            Console.Write("    Silinecek Yetki ID :  ");
+            int claimId = Convert.ToInt32(Console.ReadLine());
+            operationClaimManager.DeleteClaim(operationClaimManager.GetById(claimId).Data);
+
+        }
+
+        private static void GetUsers(UserOperationClaimManager userOperationClaimManager)
+        {
+            foreach (var user in userOperationClaimManager.GetUser().Data)
+            {
+                Console.WriteLine($"     Kullanıcı ID : {user.UserId}\n" +
+                                  $"     İsim : {user.FirstName}\n" +
+                                  $"     Soyisim : {user.LastName}\n" +
+                                  $"     Email : {user.Email}\n" +
+                                  $"     Kullanıcı Yetkisi : {user.ClaimName}");
+            }
+        }
+
+        private static void AddUserClaim(UserOperationClaimManager userOperationClaimManager,OperationClaimManager operationClaimManager)
+        {
+            Console.WriteLine("Yetki Vereceğiniz Kullanıcıyı Seçiniz, Kullanıcılar Getiriliyor...");
+            GetUsers(userOperationClaimManager);
+            Console.WriteLine(" ");
+
+            Console.Write("Kullanıcı ID :");
+            int userId = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Yetki Seçiniz , Yetkiler Getiriliyor...");
+            GetAllClaims(operationClaimManager);
+            Console.WriteLine(" ");
+
+            Console.Write("Yetki ID :");
+            int claimId = Convert.ToInt32(Console.ReadLine());
+
+            UserOperationClaim userClaimAdd = new UserOperationClaim { UserId = userId, OperationClaimId = claimId };
+            userOperationClaimManager.AddUserClaim(userClaimAdd);
+            
+        }
+
+        private static void DeleteUserClaim(UserOperationClaimManager userOperationClaimManager)
+        {
+            Console.WriteLine("                    <<<<<<     HOŞ GELDİNİZ     >>>>>>>");
+            Console.WriteLine(" ");
+            Console.WriteLine("             Mevcut Kullanıcı-Yetki Listesi Getiriliyor... , Hangi kullanıcıdan Yetki Silmek İstiyorsanız Kullanıcı ID Giriniz.    ");
+            GetUsers(userOperationClaimManager);
+
+            Console.WriteLine(" ");
+            Console.Write("         Yetkisi Silinecek Kullanıcı ID : ");
+            int userClaimDeleteByUserId = Convert.ToInt32(Console.ReadLine());
+            userOperationClaimManager.DeleteUserClaim(userOperationClaimManager.GetById(userClaimDeleteByUserId).Data);
+        }
+
+        
 
 
 

@@ -22,7 +22,7 @@ using Core.Aspects.Autofac.Performance;
 namespace Business.Concrete
 {
     
-     [SecuredOperation("Admin")]
+     
     public class RentalManager : IRentalService
     { 
         IRentalDal _rentalDal;
@@ -45,14 +45,14 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(),Messages.GetAllDetails);
         }
-        [SecuredOperation("User")]
+        [SecuredOperation("Admin")]
         [CacheAspect]
         public IDataResult<List<RentalDetailDto>> GetRentalDetails()
         {
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetDetails(),Messages.RentalList);
         }
 
-        [SecuredOperation("User")]
+        
         [ValidationAspect(typeof(RentalValidator))]
         [CacheRemoveAspect("IRentalService.Get")]
         public IResult RentCar(Rental rental)
@@ -73,7 +73,7 @@ namespace Business.Concrete
             }
 
         }
-        [SecuredOperation("User")]
+        
         [CacheRemoveAspect("IRentalService.Get")]
         public IResult ReturnedCar(Rental rental)
         {

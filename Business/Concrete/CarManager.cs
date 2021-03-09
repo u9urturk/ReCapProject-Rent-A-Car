@@ -16,7 +16,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    [SecuredOperation("Admin")]
+   
     public class CarManager : ICarService
     {
         ICarDal _carDal;
@@ -25,8 +25,8 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
-       
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
@@ -43,6 +43,7 @@ namespace Business.Concrete
             
         }
 
+        [SecuredOperation("Admin")]
         public IResult Delete(Car car)
         {
             
@@ -77,7 +78,8 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Car>>( _carDal.GetAll(c=>c.ColorId == id));
         }
-       
+
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Update(Car car)
         {

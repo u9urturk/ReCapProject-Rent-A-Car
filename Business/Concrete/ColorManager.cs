@@ -20,12 +20,14 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
+        [SecuredOperation("Admin")]
         public IResult Add(Color color)
         {
             _colorDal.Add(color);
             return new SuccessResult(Messages.Added);
         }
 
+        [SecuredOperation("Admin")]
         public IResult Delete(Color color)
         {
             _colorDal.Delete(color);
@@ -43,6 +45,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Color>(_colorDal.Get(c => c.ColorId == colorId));
         }
 
+        [SecuredOperation("Admin")]
         public IResult Update(Color color)
         {
             _colorDal.Update(color);

@@ -50,5 +50,8 @@ namespace Business.Constans
         public static string AccessTokenCreated = "TOKEN EKLENDİ";
         public static string SuccessfulLogin = "BAŞARILI GİRİŞ";
         public static string UnexpectedError = "BEKLENMEDİK BİR HATA OLUŞTU. İŞLEMLER GERİ ALINIRYOR...";
+        internal static string ClaimAdded;
+        internal static string DeletedClaim;
+        internal static string UserAssigned;
     }
 }

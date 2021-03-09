@@ -20,12 +20,14 @@ namespace Business.Concrete
             _customerDal = customerDal;
         }
 
+        [SecuredOperation("Admin")]
         public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);
             return new SuccessResult(Messages.NewCustomerAdded);
         }
 
+        [SecuredOperation("Admin")]
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
@@ -42,6 +44,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Customer>(_customerDal.Get(c => c.UserId == id));
         }
 
+        [SecuredOperation("Admin")]
         public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);

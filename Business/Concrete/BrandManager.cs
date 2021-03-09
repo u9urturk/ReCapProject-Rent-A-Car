@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    [SecuredOperation("Admin")]
+    
     public class BrandManager : IBrandService
     {
         IBrandDal _brandDal;
@@ -20,12 +20,14 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
+        [SecuredOperation("Admin")]
         public IResult Add(Brand brand)
         {
             _brandDal.Add(brand);
             return new  SuccessResult(Messages.Added);
         }
 
+        [SecuredOperation("Admin")]
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
@@ -39,11 +41,13 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
+        [SecuredOperation("Admin")]
         public IDataResult< Brand >GetById(int brandId)
         {
             return new SuccessDataResult<Brand>(_brandDal.Get(b=>b.BrandId == brandId));
         }
 
+        [SecuredOperation("Admin")]
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);

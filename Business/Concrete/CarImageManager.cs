@@ -17,7 +17,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    [SecuredOperation("Admin")]
+    
     public class CarImageManager : ICarImageService
     {
         ICarImageDal _carImageDal;
@@ -26,7 +26,8 @@ namespace Business.Concrete
         {
             _carImageDal = carImageDal;
         }
-
+        
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage carImage)
         {
@@ -43,6 +44,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ImageAdded);
         }
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Delete(CarImage carImage)
         {
@@ -51,7 +53,8 @@ namespace Business.Concrete
             _carImageDal.Delete(carImage);
             return new SuccessResult();
         }
-        
+
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IDataResult<CarImage> Get(int id)
         {
@@ -64,12 +67,13 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
 
-        [SecuredOperation("User")]
+        
         public IDataResult<List<CarImage>> GetImagesByCarId(int id)
         {
             return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(id));
         }
 
+        [SecuredOperation("Admin")]
         public IResult Update(IFormFile file, CarImage carImage)
         {
             carImage.ImagePath = FileHelper.Update(_carImageDal.Get(i => i.Id == carImage.Id).ImagePath, file);
