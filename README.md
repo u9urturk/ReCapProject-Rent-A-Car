@@ -17,13 +17,13 @@
 
 
 ## Project Development Process
-☑️ CRUD Operasyonları Oluşturuldu
-☑️ WebAPI katmanı Kuruldu
-☑️ Autodac Desteğii Eklendi
-☑️ FluentValidation Desteği Eklendi
-☑️ AOP Desteği Eklendi
-☑️ JWT Entegrasyonu Yapıldı
-☑️ Cache Transaction Ve Performance Aspectleri Eklendi
+☑️ CRUD Operasyonları Oluşturuldu   
+☑️ WebAPI katmanı Kuruldu   
+☑️ Autofac Desteği Eklendi    
+☑️ FluentValidation Desteği Eklendi    
+☑️ AOP Desteği Eklendi    
+☑️ JWT Entegrasyonu Yapıldı    
+☑️ Cache Transaction Ve Performance Aspectleri Eklendi    
 
 
 
