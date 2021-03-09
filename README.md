@@ -11,5 +11,11 @@
 ##### - Proje tasarımı sürecinde SOLİD prensipleri dikkate alınmıştır ve temel amaç CleanCode olmak üzere bir çok yeniden düzenleme yapılmıştır ve yapılmaya devam ediyor.
 ##### - Projenin çıkış noktası [Kodlama.io](https://www.kodlama.io/p/yazilim-gelistirici-yetistirme-kampi) platformu üzerinden [Engin Demiroğ](https://github.com/engindemirog) tarafından oluşturulan ' Yazılım Geliştirici Yetiştirme Kampıdır. '
 
-### Project Development Process
+
+
+
+
+
+## Project Development Process
+##### - [x] CRUD Operasyonları Oluşturuldu 
 
