@@ -17,8 +17,7 @@
 
 
 ## Project Development Process
-- [x] CRUD Operasyonları Oluşturuldu
+☑️ CRUD Operasyonları Oluşturuldu
 
-Done? | CRUD Operasyonları Oluşturuldu
-☑️:| ---
+
 
