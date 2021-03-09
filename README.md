@@ -17,14 +17,14 @@
 
 
 ## Project Development Process
-☑️ CRUD Operasyonları Oluşturuldu   
-☑️ WebAPI katmanı Kuruldu   
-☑️ Autofac Desteği Eklendi    
-☑️ FluentValidation Desteği Eklendi    
-☑️ AOP Desteği Eklendi    
-☑️ JWT Entegrasyonu Yapıldı    
-☑️ Cache Transaction Ve Performance Aspectleri Eklendi
-☑️ Performance Aspectler Tüm Metotlara Tanımlandı Ve Olası Performans Bilgileri Email Yoluyla Loglanabilmesi Amacıyla SendMail Operasyonu Geliştirildi.
+☑️ CRUD Operasyonları Oluşturuldu.   
+☑️ WebAPI katmanı Kuruldu.   
+☑️ Autofac Desteği Eklendi.    
+☑️ FluentValidation Desteği Eklendi.    
+☑️ AOP Desteği Eklendi.    
+☑️ JWT Entegrasyonu Yapıldı.    
+☑️ Cache Transaction Ve Performance Aspectleri Eklendi.
+☑️ Performance Aspectler Tüm Metotlara Tanımlandı Ve Olası Performans Bilgileri Email Yoluyla Loglanabilmesi Amacıyla SendMail Operasyonu Geliştirildi.   
 
 
 
