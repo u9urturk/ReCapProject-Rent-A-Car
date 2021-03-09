@@ -24,7 +24,7 @@
 ☑️ AOP Desteği Eklendi.    
 ☑️ JWT Entegrasyonu Yapıldı.    
 ☑️ Cache Transaction Ve Performance Aspectleri Eklendi.    
-☑️ Performance Aspectler Tüm Metotlara Tanımlandı Ve Olası Performans Bilgileri Email Yoluyla Loglanabilmesi Amacıyla SendMail Operasyonu Geliştirildi.     
+☑️ Performance Aspectler Tüm Metotlara Tanımlandı Ve Olası Performans Bilgileri Email Yoluyla Loglanabilmesi Amacıyla SendMail Operasyonu Geliştirildi. İncelemek isterseniz ilgili kodlar burada : [PerformanceAspect](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/Core/Aspects/Autofac/Performance/PerformanceAspect.cs) , [SendMail](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/Core/Utilities/SendMail)     
 ![SendMail](https://user-images.githubusercontent.com/77547474/110551225-3150ba00-8146-11eb-94e6-97bd155291dc.PNG)
     
 
