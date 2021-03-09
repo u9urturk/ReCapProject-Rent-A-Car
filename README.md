@@ -1,6 +1,2 @@
 #              RENT A CAR PROJECT
-<kbd>Ctrl</kbd>
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+![](http://clipart-library.com/images/8czr74qEi.jpg)
