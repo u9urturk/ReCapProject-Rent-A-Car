@@ -1,2 +1,2 @@
 #              RENT A CAR PROJECT
-<kbd>Tab</kbd>
+/github/repo-size/:user/:repo
