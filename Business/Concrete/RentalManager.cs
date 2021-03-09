@@ -45,6 +45,12 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(),Messages.GetAllDetails);
         }
+
+        public IDataResult<Rental> GetRantalDetailByRentalId(int id)
+        {
+            return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.Id == id));
+        }
+
         [SecuredOperation("Admin")]
         [CacheAspect]
         public IDataResult<List<RentalDetailDto>> GetRentalDetails()

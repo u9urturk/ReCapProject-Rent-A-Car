@@ -42,7 +42,10 @@ namespace DataAccess.Concrete.EntityFramework
                                      DailyRentPrice = c.DailyPrice,
                                      RentDate = r.RentDate,
                                      ReturnDate = r.ReturnDate,
-                                     CarName = c.CarName
+                                     CarName = c.CarName,
+                                     CustomerId=cstmr.Id
+
+                                     
 
 
                                  };

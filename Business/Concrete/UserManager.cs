@@ -4,6 +4,7 @@ using Business.Constans;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -43,6 +44,11 @@ namespace Business.Concrete
         public IDataResult<List<User>> GetAll()
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll());
+        }
+
+        public IDataResult<List<UserClaimForUserInfoDto>> GetUserDetail()
+        {
+            return new SuccessDataResult<List<UserClaimForUserInfoDto>>(_userDal.UserDetail());
         }
     }
 }

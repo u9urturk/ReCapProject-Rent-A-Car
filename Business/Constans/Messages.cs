@@ -53,5 +53,6 @@ namespace Business.Constans
         internal static string ClaimAdded;
         internal static string DeletedClaim;
         internal static string UserAssigned;
+        internal static string GetUserList;
     }
 }

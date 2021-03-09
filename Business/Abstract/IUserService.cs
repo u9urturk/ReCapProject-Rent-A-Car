@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Core.Utilities.Results;
+using Entities.DTOs;
 using System.Collections.Generic;
 
 namespace Business.Abstract
@@ -10,5 +11,6 @@ namespace Business.Abstract
         IResult Add(User user);
         IDataResult<User> GetByMail(string email);
         IDataResult<List<User>> GetAll();
+        IDataResult<List<UserClaimForUserInfoDto>> GetUserDetail();
     }
 }

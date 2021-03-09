@@ -7,7 +7,7 @@ using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using Entities.DTOs;
-using System;
+using System; 
 
 namespace ConsoleUI
 {
@@ -23,6 +23,7 @@ namespace ConsoleUI
             UserManager userManager = new UserManager(new EfUserDal());
             OperationClaimManager operationClaimsManager = new OperationClaimManager(new EfOperationClaim());
             UserOperationClaimManager userOperationClaimManager = new UserOperationClaimManager(new EfUserOperationClaimDal());
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             
 
             
@@ -31,7 +32,7 @@ namespace ConsoleUI
            
             
 
-
+            // Kategoriler İçin Input Oluşumu Ve Metotların Tanımlanması
             bool exit = true;
             while (exit)
             {
@@ -59,14 +60,15 @@ namespace ConsoleUI
                         "    <<<<  METOTLAR   >>>\n************************************************\n"+   
                         "       1.Araba Ekle\n"+
                         "       2.Araba Sil\n"+
-                        "       3.Renk Ekle\n"+
-                        "       4.Araba Renklerini Listele\n"+
-                        "       5.Renk Sil\n"+
-                        "       6.Marka Ekle\n"+
-                        "       7.Araba Markalarını Listele\n"+
-                        "       8.Marka Sil\n"+
-                        "       9.Ana Menüye Dön\n"+
-                        "       10.Çıkış\n"+
+                        "       3.Arabaları Listele\n"+
+                        "       4.Renk Ekle\n"+
+                        "       5.Araba Renklerini Listele\n"+
+                        "       6.Renk Sil\n"+
+                        "       7.Marka Ekle\n"+
+                        "       8.Araba Markalarını Listele\n"+
+                        "       9.Marka Sil\n"+
+                        "       10.Ana Menüye Dön\n"+
+                        "       11.Çıkış\n"+
                         "           Seçiminiz : "
                         );
                     int number2 = Convert.ToInt32(Console.ReadLine());
@@ -80,22 +82,28 @@ namespace ConsoleUI
                             break;
 
                         case 3:
-                            AddColor(colorManager);
-
-                            break;
-
-                        case 6:
-                            AddBrand(brandManager);
-
-                            break;
-
-                        case 7:
-                            GetAllBrand(brandManager);
+                            GetAllCar(carManager);
                             Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
                             Console.ReadKey();
                             break;
 
                         case 4:
+                            AddColor(colorManager);
+
+                            break;
+
+                        case 7:
+                            AddBrand(brandManager);
+
+                            break;
+
+                        case 8:
+                            GetAllBrand(brandManager);
+                            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+                            Console.ReadKey();
+                            break;
+
+                        case 5:
                             GetAllColor(colorManager);
                             Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
                             Console.ReadKey();
@@ -107,22 +115,22 @@ namespace ConsoleUI
                             Console.ReadKey();
                             break;
 
-                        case 5:
+                        case 6:
                             ColorDelete(colorManager);
                             Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
                             Console.ReadKey();
                             break;
 
-                        case 8:
+                        case 9:
                             BrandDelete(brandManager);
                             Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
                             Console.ReadKey();
                             break;
 
-                        case 9:
+                        case 10:
                             break;
 
-                        case 10:
+                        case 11:
                             exit = false;
                             break;
 
@@ -136,9 +144,11 @@ namespace ConsoleUI
                        "        <<<<<<<<<<<<Rent A Car>>>>>>>>>>>>    \n *************************************************\n" +
                        "    <<<<  METOTLAR   >>>\n************************************************\n" +
                        "       1.Kiralık Arabaları Listele\n" +
-                       "       2.Araba Kirala\n"+   
-                       "       3.Ana Menüye Dön\n" +
-                       "       4.Çıkış\n"+
+                       "       2.Mevcut Kira Listesini Getir\n"+
+                       "       3.Araba Kirala\n"+
+                       "       4.Araç Dönüş İşlemini Başlat\n"+
+                       "       5.Ana Menüye Dön\n" +
+                       "       6.Çıkış\n"+
                        "           Seçiminiz :  "
 
                        );
@@ -147,8 +157,21 @@ namespace ConsoleUI
 
                     switch (number3)
                     {
+                        case 4:
+                            ReturnedCar(rentalManager);
+                            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+                            Console.ReadKey();
+                            break;
+
                         case 2:
-                            AddingRental(rentalManager, carManager);
+                            GetRentalDetails(rentalManager);
+                            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+                            Console.ReadKey();
+                            break;
+
+
+                        case 3:
+                            RentCar(rentalManager, carManager,customerManager);
                             break;
 
                         case 1:
@@ -157,10 +180,10 @@ namespace ConsoleUI
                             Console.ReadKey();
                             break;
 
-                        case 3:
+                        case 5:
                             break;
 
-                        case 4:
+                        case 6:
                             exit = false;
                             break;
 
@@ -188,19 +211,19 @@ namespace ConsoleUI
                     switch (number4)
                     {
                         case 1:
-                            GetUsers(userOperationClaimManager);
+                            UserDetail(userManager);
                             Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
                             Console.ReadKey();
                             break;
 
                         case 2:
-                            AddUserClaim(userOperationClaimManager,operationClaimsManager);
+                            AddUserClaim(userOperationClaimManager,operationClaimsManager,userManager);
                             Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
                             Console.ReadKey();
                             break;
 
                         case 3:
-                            DeleteUserClaim(userOperationClaimManager);
+                            DeleteUserClaim(userOperationClaimManager,userManager);
                             Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
                             Console.ReadKey();
                             break;
@@ -271,7 +294,8 @@ namespace ConsoleUI
 
         }
 
-        private static void AddingRental(RentalManager rentalManager,CarManager carManager)
+        // Input Oluşumu Ve Metot Tasarımı 
+        private static void RentCar(RentalManager rentalManager,CarManager carManager,CustomerManager customerManager)
         {
             Console.WriteLine("                    <<<<<<     HOŞ GELDİNİZ     >>>>>>>");
             Console.WriteLine(" ");
@@ -281,7 +305,9 @@ namespace ConsoleUI
             Console.Write("     Araba ID : ");
             int carId = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("             Müşteri ID giriniz      ");
+            Console.WriteLine("             Müşteri  Seçiniz      ");
+            GetCustomerInfo(customerManager);
+            Console.WriteLine("                ");
             Console.Write("     Müşteri ID :");
             int customerId = Convert.ToInt32(Console.ReadLine());
 
@@ -458,22 +484,12 @@ namespace ConsoleUI
 
         }
 
-        private static void GetUsers(UserOperationClaimManager userOperationClaimManager)
-        {
-            foreach (var user in userOperationClaimManager.GetUser().Data)
-            {
-                Console.WriteLine($"     Kullanıcı ID : {user.UserId}\n" +
-                                  $"     İsim : {user.FirstName}\n" +
-                                  $"     Soyisim : {user.LastName}\n" +
-                                  $"     Email : {user.Email}\n" +
-                                  $"     Kullanıcı Yetkisi : {user.ClaimName}");
-            }
-        }
+       
 
-        private static void AddUserClaim(UserOperationClaimManager userOperationClaimManager,OperationClaimManager operationClaimManager)
+        private static void AddUserClaim(UserOperationClaimManager userOperationClaimManager,OperationClaimManager operationClaimManager,UserManager userManager)
         {
             Console.WriteLine("Yetki Vereceğiniz Kullanıcıyı Seçiniz, Kullanıcılar Getiriliyor...");
-            GetUsers(userOperationClaimManager);
+            UserDetail(userManager);
             Console.WriteLine(" ");
 
             Console.Write("Kullanıcı ID :");
@@ -491,17 +507,86 @@ namespace ConsoleUI
             
         }
 
-        private static void DeleteUserClaim(UserOperationClaimManager userOperationClaimManager)
+        private static void DeleteUserClaim(UserOperationClaimManager userOperationClaimManager,UserManager userManager)
         {
             Console.WriteLine("                    <<<<<<     HOŞ GELDİNİZ     >>>>>>>");
             Console.WriteLine(" ");
             Console.WriteLine("             Mevcut Kullanıcı-Yetki Listesi Getiriliyor... , Hangi kullanıcıdan Yetki Silmek İstiyorsanız Kullanıcı ID Giriniz.    ");
-            GetUsers(userOperationClaimManager);
+            UserDetail(userManager);
 
             Console.WriteLine(" ");
             Console.Write("         Yetkisi Silinecek Kullanıcı ID : ");
             int userClaimDeleteByUserId = Convert.ToInt32(Console.ReadLine());
             userOperationClaimManager.DeleteUserClaim(userOperationClaimManager.GetById(userClaimDeleteByUserId).Data);
+        }
+
+        private static void UserDetail(UserManager userManager)
+        {
+            foreach (var user in userManager.GetUserDetail().Data)
+            {
+                Console.WriteLine($"     Kullanıcı ID : {user.UserId}\n" +
+                                  $"     İsim : {user.FirstName}\n" +
+                                  $"     Soyisim : {user.LastName}\n" +
+                                  $"     Email : {user.Email}\n" +
+                                  $"     Kullanıcı Yetkisi : {user.ClaimName}");
+            }
+        }
+
+        private static void GetRentalDetails(RentalManager rentalManager)
+        {
+            foreach (var rentalcar in rentalManager.GetRentalDetails().Data)
+            {
+                Console.WriteLine($"    Kira ID : {rentalcar.Id}\n"+
+                                  $"    Araba ID : {rentalcar.CarId}\n" +
+                                  $"    Araç Marka : {rentalcar.CarBrand} - Model : {rentalcar.CarModel} - Plaka : {rentalcar.CarName} \n" +
+                                  $"    Günlük Ücret : {rentalcar.DailyRentPrice}\n" +
+                                  $"    Müşteri ID : {rentalcar.CustomerId}\n"+
+                                  $"    Müşteri İsim -- Soyisim : {rentalcar.CustomerName} -- {rentalcar.CustomerLastName}\n" +
+                                  $"    Şirket : {rentalcar.CustomerCompany}\n" +
+                                  $"    Müşteri Email : {rentalcar.CustomerEmail}\n" +
+                                  $"    Kiralanma Tarihi : {rentalcar.RentDate}\n" +
+                                  $"    Dönüş Tarihi : {rentalcar.ReturnDate}\n" 
+                                 );
+            }
+        }
+
+        private static void ReturnedCar(RentalManager rentalManager)
+        {
+            Console.WriteLine("                    <<<<<<     HOŞ GELDİNİZ     >>>>>>>");
+            Console.WriteLine(" ");
+            Console.WriteLine("             Mevcut Kira Listesi Getiriliyor... , Hangi Araç Dönüş Yapıyorsa O Araç İçin İstenen Bilgileri Girin   ");
+            GetRentalDetails(rentalManager);
+            Console.WriteLine("");
+
+            Console.Write("     Kira ID :");
+            int rentId = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("     Araba ID :");
+            int carId = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("     Müşteri ID :");
+            int customerId = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("     Kiralanma Tarihi(GG.AA.YYYY) : ");
+            DateTime rentDate = Convert.ToDateTime(Console.ReadLine());
+
+            Console.Write("     Dönüş Tarihi(GG.AA.YYYY) : ");
+            DateTime returnDate = Convert.ToDateTime(Console.ReadLine());
+
+            Rental returnedCar = new Rental { Id = rentId, CarId = carId, CustomerId = customerId, RentDate = rentDate, ReturnDate = returnDate };
+            rentalManager.ReturnedCar(returnedCar);
+        }
+
+        private static void GetCustomerInfo(CustomerManager customerManager)
+        {
+            foreach (var customer in customerManager.GetCustomerInfo().Data)
+            {
+                Console.WriteLine($"    Müşteri ID : {customer.CustomerId}\n" +
+                                 $"     İsim : {customer.CustomerName}\n" +
+                                 $"     Soyisim : {customer.CustomerLastName}\n" +
+                                 $"     Email : {customer.Email} ");
+                                 
+            }
         }
 
         
