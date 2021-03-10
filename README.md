@@ -73,7 +73,8 @@ $ dotnet restore
             ![ReturnedCar](https://user-images.githubusercontent.com/77547474/110555522-c7d4a980-814d-11eb-845c-a24e008eb037.PNG)    
             
 <br>
-☑️ Geliştirilen Metotları Test Etmek Amacıyla Bir [MetotTester](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/Console/Program.cs)  Oluşturuldu  
+☑️ Geliştirilen Metotları Test Etmek Amacıyla Bir MetotTester Oluşturuldu  
+➡️ İlgili Kodlar [MetotTester]()
     
    ↘️ Method Tester Görselleri 
    <p align="center">
