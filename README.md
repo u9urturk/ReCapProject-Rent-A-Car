@@ -50,8 +50,10 @@
 <br>
 ☑️ Geliştirilen Metotları Test Etmek Amacıyla Bir Metot Tester Oluşturuldu  
     
-      ↘️ Method Tester Görselleri    
-      ![KIZOA-Movie-Maker-n6i6jcxg](https://user-images.githubusercontent.com/77547474/110557557-db820f00-8151-11eb-9925-9f93f56dd7a2.gif)
+   ↘️ Method Tester Görselleri    
+   ![KIZOA-Movie-Maker-n6i6jcxg](https://user-images.githubusercontent.com/77547474/110557615-fd7b9180-8151-11eb-9eb9-452658453535.gif)
+
+     
 
 
 
