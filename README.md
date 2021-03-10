@@ -74,7 +74,7 @@ $ dotnet restore
             
 <br>
 ☑️ Geliştirilen Metotları Test Etmek Amacıyla Bir MetotTester Oluşturuldu        <br>     
-📙 İlgili Kodlar [MetotTester](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/Console/Program.cs)
+📙 İlgili Kodlar [MetotTester](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/Console/Program.cs/)
     
    ↘️ Method Tester Görselleri 
    <p align="center">
