@@ -75,8 +75,10 @@ $ dotnet restore
 <br>
 ☑️ Geliştirilen Metotları Test Etmek Amacıyla Bir Metot Tester Oluşturuldu  
     
-   ↘️ Method Tester Görselleri    
-   ![TEster](https://media.giphy.com/media/2S2EyOrlLl0A6dLLjP/giphy.gif)
+   ↘️ Method Tester Görselleri 
+   <p align="center">
+  <img src="https://media.giphy.com/media/2S2EyOrlLl0A6dLLjP/giphy.gif" width="600"
+   
      
 <br>   
 
