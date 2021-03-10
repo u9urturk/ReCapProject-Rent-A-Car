@@ -13,6 +13,7 @@
 <br>
 <br>
 ## Installation
+
 ```bash
 # Clone to repository
 $ git clone https://github.com/u9urturk/ReCapProject-Rent-A-Car.git
@@ -23,8 +24,7 @@ $ cd ReCapProject-Rent-A-Car
 # Install dependencies
 $ dotnet restore
 ```
-<br>
-<br>
+
 
 ## Project Development Process
 ☑️ CRUD Operasyonları Oluşturuldu.   
