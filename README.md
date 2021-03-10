@@ -31,7 +31,7 @@ $ dotnet restore
 ☑️ CRUD Operasyonları Oluşturuldu.   
 
 ☑️ WebAPI katmanı Kuruldu.   
-      > Projeyi WebAPI Katmanı Üzerinde [Set as Start Up Project](https://user-images.githubusercontent.com/77547474/110627242-c7222e80-81b2-11eb-8970-6b5da04cd913.png) Çalıştırarak [PostMan](https://www.postman.com/) Aracılığıyla Sisteme İstekte Bulunabilirsiniz.
+      ➕ Projeyi WebAPI Katmanı Üzerinde [Set as Start Up Project](https://user-images.githubusercontent.com/77547474/110627242-c7222e80-81b2-11eb-8970-6b5da04cd913.png) Diyerek  Çalıştırabilir Ve [PostMan](https://www.postman.com/) Aracılığıyla Sisteme İstekte Bulunabilirsiniz.
      ↘️ ![wepapi](https://user-images.githubusercontent.com/77547474/110627242-c7222e80-81b2-11eb-8970-6b5da04cd913.png)
 
 ☑️ Autofac Desteği Eklendi.    
