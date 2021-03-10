@@ -66,8 +66,8 @@ $ dotnet restore
      
 <br>   
 
-##SQL Query    
-📘 [Query](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/SQLQuery.sql)     
+## SQL Query    
+📘 [Query](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/SQLQuery.sql)  ❗ İncelemek İsteyenler İçin Tablolarım.
 
 
 ## Tables in Database
