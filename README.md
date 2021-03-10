@@ -76,7 +76,7 @@ $ dotnet restore
 ☑️ Geliştirilen Metotları Test Etmek Amacıyla Bir Metot Tester Oluşturuldu  
     
    ↘️ Method Tester Görselleri    
-   ![KIZOA-Movie-Maker-n6i6jcxg](https://media.giphy.com/media/HvKsU2ARRo4mnn46QB/giphy.gif)
+   ![TEster](https://media.giphy.com/media/2S2EyOrlLl0A6dLLjP/giphy.gif)
      
 <br>   
 
