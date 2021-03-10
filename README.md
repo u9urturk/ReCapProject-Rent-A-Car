@@ -64,6 +64,120 @@ $ dotnet restore
    ↘️ Method Tester Görselleri    
    ![KIZOA-Movie-Maker-n6i6jcxg](https://media.giphy.com/media/HvKsU2ARRo4mnn46QB/giphy.gif)
      
+<br>   
+
+##SQL Query    
+📘 [Query](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/SQLQuery.sql)     
+
+
+## Tables in Database
+<table>
+  <tr>
+     <td>Brands</td>
+     <td>CarImages</td>
+     <td>Cars</td>
+     <td>Colors</td>
+     <td>Customers</td>
+     <td>OperationClaims</td>
+     <td>Rentals</td>
+     <td>UserOperationClaims</td>
+     <td>Users</td>
+  </tr>
+  <tr>
+    <td>
+      
+Variable Name | Data Type
+------------ | -------------
+Id | INT
+BrandName | NVARCHAR(25)
+
+   
+   </td>
+    <td>
+  
+Variable Name | Data Type
+------------ | -------------
+Id | INT
+CarId | INT
+CarImagesDate | DATETIME
+ImagePath | NVARCHAR(MAX)
+   
+   </td>
+    <td>
+  
+Variable Name | Data Type
+------------ | -------------
+Id | INT
+BrandId | INT
+ColorId | INT
+ModelYear | NVARCHAR(25)
+DailyPrice | DECIMAL
+Description | NVARCHAR(25)
+
+   
+   </td>
+    <td>
+
+Variable Name | Data Type
+------------ | -------------
+Id | INT
+ColorName | NVARCHAR(25)
+
+   </td>
+    <td>
+
+
+Variable Name | Data Type
+------------ | -------------
+Id | INT
+UserId | INT
+CustomerName | NVARCHAR(25)
+
+   </td>
+    <td>
+
+
+Variable Name | Data Type
+------------ | -------------
+Id | INT
+Name  | VARCHAR(250)
+
+   </td>
+   <td>
+  
+Variable Name | Data Type
+------------ | -------------
+Id | INT
+CarId | INT
+CustomerId | INT
+RentDate | DATETIME
+ReturnDate | DATETIME
+
+   </td>
+    <td>
+  
+Variable Name | Data Type
+------------ | -------------
+Id | INT
+UserId | INT
+OperationId | INT
+
+   </td>
+    <td>
+  
+Variable Name | Data Type
+------------ | -------------
+Id | INT
+FirstName | VARCHAR(50)
+LastName | VARCHAR(50)
+Email | VARCHAR(50)
+PasswordHash | VARBINARY (500)
+PasswordSalt | VARBINARY (500)
+Status | BIT
+
+   </td>
+  </tr>
+ </table>
 
 
 
