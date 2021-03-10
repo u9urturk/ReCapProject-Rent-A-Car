@@ -82,6 +82,7 @@ $ dotnet restore
      <td>Rentals</td>
      <td>UserOperationClaims</td>
      <td>Users</td>
+    <td>RentArchives</td>
   </tr>
   <tr>
     <td>
@@ -89,7 +90,7 @@ $ dotnet restore
 Variable Name | Data Type
 ------------ | -------------
 Id | INT
-BrandName | NVARCHAR(25)
+BrandName | NVARCHAR(20)
 
    
    </td>
@@ -99,20 +100,21 @@ Variable Name | Data Type
 ------------ | -------------
 Id | INT
 CarId | INT
-CarImagesDate | DATETIME
 ImagePath | NVARCHAR(MAX)
+Date | DATETİME
    
    </td>
     <td>
   
 Variable Name | Data Type
 ------------ | -------------
-Id | INT
+CarId | INT
+CarName | NCHAR(20)
 BrandId | INT
 ColorId | INT
 ModelYear | NVARCHAR(25)
-DailyPrice | DECIMAL
-Description | NVARCHAR(25)
+DailyPrice | DECIMAL(18)
+Description | NCHAR(50)
 
    
    </td>
@@ -120,8 +122,8 @@ Description | NVARCHAR(25)
 
 Variable Name | Data Type
 ------------ | -------------
-Id | INT
-ColorName | NVARCHAR(25)
+ColorId | INT
+ColorName | NVARCHAR(20)
 
    </td>
     <td>
@@ -131,7 +133,7 @@ Variable Name | Data Type
 ------------ | -------------
 Id | INT
 UserId | INT
-CustomerName | NVARCHAR(25)
+CompanyName | NVARCHAR(50)
 
    </td>
     <td>
@@ -174,6 +176,17 @@ Email | VARCHAR(50)
 PasswordHash | VARBINARY (500)
 PasswordSalt | VARBINARY (500)
 Status | BIT
+
+   </td>
+    <td>
+  
+variable Name | Data Type
+------------ | -------------
+Id|INT
+CarId|INT
+CustomerId|INT
+RentDate|DATETİME
+ReturnDate|DATETİME
 
    </td>
   </tr>
