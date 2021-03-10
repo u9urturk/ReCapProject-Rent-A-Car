@@ -45,8 +45,12 @@
 <br>
       ↘️ Method İle İlgili Görseller      
             ![UpdateAndMove](https://user-images.githubusercontent.com/77547474/110555188-3107ed00-814d-11eb-9f7e-29d75b79f773.PNG)     
-            ![ReturnedCar](https://user-images.githubusercontent.com/77547474/110555522-c7d4a980-814d-11eb-845c-a24e008eb037.PNG)
-
+            ![ReturnedCar](https://user-images.githubusercontent.com/77547474/110555522-c7d4a980-814d-11eb-845c-a24e008eb037.PNG)    
+            
+<br>
+☑️ Geliştirilen Metotları Test Etmek Amacıyla Bir Metot Tester Oluşturuldu  
+    
+      ↘️ Method Tester Görselleri <br>
 
 
 
