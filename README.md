@@ -48,6 +48,10 @@ $ dotnet restore
 
 ![SendMail](https://user-images.githubusercontent.com/77547474/110551225-3150ba00-8146-11eb-94e6-97bd155291dc.PNG)        
          <br>
+ ##### Sunucu Gmail Olarak Ayarlanmıştır..
+  ↘️
+  ![SendMailInfo](https://user-images.githubusercontent.com/77547474/110622852-15343380-81ad-11eb-9f35-fbed3252ee60.PNG)
+
       <br>
        
        
