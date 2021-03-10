@@ -57,8 +57,7 @@ $ dotnet restore
    ![Gönderici](https://user-images.githubusercontent.com/77547474/110623428-de125200-81ad-11eb-83b1-0e89a58ba0ec.PNG)
    <br>
    ↘️ Alıcı Gmail Üzerinde Yapılması Gerekenler     
-    #####  POP Etkinleştirilmeli
-    ![Alıcı](https://user-images.githubusercontent.com/77547474/110624338-1bc3aa80-81af-11eb-9719-9c36e44ed4b1.PNG)
+   ![Alıcı](https://user-images.githubusercontent.com/77547474/110624338-1bc3aa80-81af-11eb-9719-9c36e44ed4b1.PNG)
 
 
        
