@@ -10,11 +10,21 @@
 ##### - Proje Temelde [Business](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/Business) , [Console](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/Console) , [Core](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/Core) ,[DataAccess](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/DataAccess) , [Entities](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/Entities) , [WepApi](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/WepAPI) kısımlarından oluşan çok katmanlı bir mimari üzerine inşa edilmiştir.
 ##### - Proje tasarımı sürecinde SOLİD prensipleri dikkate alınmıştır ve temel amaç CleanCode olmak üzere bir çok yeniden düzenleme yapılmıştır ve yapılmaya devam ediyor.
 ##### - Projenin çıkış noktası [Kodlama.io](https://www.kodlama.io/p/yazilim-gelistirici-yetistirme-kampi) platformu üzerinden [Engin Demiroğ](https://github.com/engindemirog) tarafından oluşturulan ' Yazılım Geliştirici Yetiştirme Kampıdır. '
+<br>
+<br>
+## Installation
+```bash
+# Clone to repository
+$ git clone https://github.com/u9urturk/ReCapProject-Rent-A-Car.git
 
+# Go to the folder you cloned
+$ cd ReCapProject-Rent-A-Car
 
-
-
-
+# Install dependencies
+$ dotnet restore
+```
+<br>
+<br>
 
 ## Project Development Process
 ☑️ CRUD Operasyonları Oluşturuldu.   
