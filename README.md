@@ -36,10 +36,10 @@
 ❗ İncelemek isterseniz ilgili kodlar burada : [PerformanceAspect](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/Core/Aspects/Autofac/Performance/PerformanceAspect.cs) , [SendMail](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/Core/Utilities/SendMail)     
 
 ![SendMail](https://user-images.githubusercontent.com/77547474/110551225-3150ba00-8146-11eb-94e6-97bd155291dc.PNG)        
-         
-      
-       
-       
+         <br>
+      <br>
+       <br>
+       <br>
         
 ☑️ Temel Metotlara Ek Kira Süreci Tamamlanmış Araçların Dönüşü Durumunda Kullanılmak Üzere [UpdateAndMove](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs) Metodu Geliştirildi.    
       ↘️ Method İle İlgili Görseller      
