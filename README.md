@@ -37,9 +37,15 @@
 
 ![SendMail](https://user-images.githubusercontent.com/77547474/110551225-3150ba00-8146-11eb-94e6-97bd155291dc.PNG)        
 
+
+
+
+
 ☑️ Temel Metotlara Ek Kira Süreci Tamamlanmış Araçların Dönüşü Durumunda Kullanılmak Üzere [UpdateAndMove](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs) Metodu Geliştirildi.    
       ↘️ Method İle İlgili Görseller      
-            ![UpdateAndMove](https://user-images.githubusercontent.com/77547474/110555188-3107ed00-814d-11eb-9f7e-29d75b79f773.PNG)
+            ![UpdateAndMove](https://user-images.githubusercontent.com/77547474/110555188-3107ed00-814d-11eb-9f7e-29d75b79f773.PNG)     
+            ![ReturnedCar](https://user-images.githubusercontent.com/77547474/110555522-c7d4a980-814d-11eb-845c-a24e008eb037.PNG)
+
 
 
 
