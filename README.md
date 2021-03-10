@@ -52,7 +52,10 @@ $ dotnet restore
   ↘️
   ![SendMailInfo](https://user-images.githubusercontent.com/77547474/110622852-15343380-81ad-11eb-9f35-fbed3252ee60.PNG)
 
-      <br>
+##### ❗ Operasyonun Verimli Çalışabilmesi İçin Alıcı Ve Gönderici Gmail Hesapları Üzerinde Bazı Değişikler Yapılması Gerekmekte.    
+   ↘️ Gönderici Gmail Üzerinde Yapılması Gerekenler    
+   ![Gönderici](https://user-images.githubusercontent.com/77547474/110623428-de125200-81ad-11eb-83b1-0e89a58ba0ec.PNG)
+
        
        
         
