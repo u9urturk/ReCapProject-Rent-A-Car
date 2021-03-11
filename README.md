@@ -215,8 +215,11 @@ ReturnDate|DATETİME
 <br>
 
 
-##### 🔖License : [MIT](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/LICENSE)   
-##### 🔄Contact : [Uğur Türk](https://www.instagram.com/ugrrturk/)
+## License
+[MIT©Uğur Türk](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/LICENSE)
+
+
+
 
 
     
