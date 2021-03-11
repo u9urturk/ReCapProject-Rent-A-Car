@@ -214,7 +214,7 @@ ReturnDate|DATETİME
 <br>
 <br>
 
-### 🔄Contact : [Uğur Türk](https://www.instagram.com/ugrrturk/)
+##### 🔄Contact : <a href=https://www.instagram.com/ugrrturk/" target="_blank">Uğur Türk</a>
 
 
     
