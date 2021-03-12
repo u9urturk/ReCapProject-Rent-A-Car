@@ -63,7 +63,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Car>(_carDal.Get(c=>c.CarId == id));
         }
 
-        [SecuredOperation("User")]
+        
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>( _carDal.GetCarDetails(),Messages.CarList);

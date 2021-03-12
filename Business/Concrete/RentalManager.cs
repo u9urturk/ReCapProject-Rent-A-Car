@@ -51,7 +51,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.Id == id));
         }
 
-        [SecuredOperation("Admin")]
+        
         [CacheAspect]
         public IDataResult<List<RentalDetailDto>> GetRentalDetails()
         {

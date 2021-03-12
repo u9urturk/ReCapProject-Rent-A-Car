@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    [SecuredOperation("Admin")]
+    
     public class CustomerManager : ICustomerService
     {
         ICustomerDal _customerDal;

@@ -1,11 +1,7 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace WepAPI.Controllers
 {
@@ -58,6 +54,17 @@ namespace WepAPI.Controllers
         public IActionResult GetAllCustomers()
         {
             var result = _customerService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getcustomerinfo")]
+        public IActionResult GetCustomerInfo()
+        {
+            var result = _customerService.GetCustomerInfo();
             if (result.Success)
             {
                 return Ok(result);
