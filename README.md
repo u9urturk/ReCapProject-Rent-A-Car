@@ -1,8 +1,7 @@
 <h1 align="center">Rent A Car Project </h1> 
 
 <p align="center">
-  <img src="![7ea95489e10ca7ae9a4a6e9b4a322b16](https://user-images.githubusercontent.com/77547474/110973340-31cb9980-836e-11eb-9bb2-74a85590c845.gif)
-" width="550" alt="Rent A Car">
+  <img src="https://user-images.githubusercontent.com/77547474/110973340-31cb9980-836e-11eb-9bb2-74a85590c845.gif" width="550" alt="Rent A Car">
 </p>
 
 
