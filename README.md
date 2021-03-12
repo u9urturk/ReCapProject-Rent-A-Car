@@ -78,7 +78,10 @@ $ dotnet restore
     
    ↘️ Method Tester Görselleri 
    <p align="center">
-  <img src="https://media.giphy.com/media/2S2EyOrlLl0A6dLLjP/giphy.gif" width="600"
+  <img src="https://media.giphy.com/media/2S2EyOrlLl0A6dLLjP/giphy.gif" width="600"<br>
+  
+☑️ Cors Servisi Eklendi.<br>
+☑️ Projenin FrontEnd Geliştirme Süreci Başladı
    
      
 <br>   
