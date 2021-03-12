@@ -1,7 +1,7 @@
 <h1 align="center">Rent A Car Project </h1> 
 
 <p align="center">
-  <img src="https://media.giphy.com/media/WpxiPz418zwy54WQvJ/giphy.gif" width="550" alt="Rent A Car">
+  <img src="https://gifer.com/en/897D" width="550" alt="Rent A Car">
 </p>
 
 
