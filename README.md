@@ -1,4 +1,4 @@
-<h1 align="center">Rent A Car Project </h1> 
+<h1 align="center">Rent A Car Project BackEnd </h1> 
 
 <p align="center">
   <img src="https://media.giphy.com/media/WpxiPz418zwy54WQvJ/giphy.gif" width="550" alt="Rent A Car">
@@ -78,7 +78,11 @@ $ dotnet restore
     
    ↘️ Method Tester Görselleri 
    <p align="center">
-  <img src="https://media.giphy.com/media/2S2EyOrlLl0A6dLLjP/giphy.gif" width="600"
+  <img src="https://media.giphy.com/media/2S2EyOrlLl0A6dLLjP/giphy.gif" width="600"<br>
+  
+☑️ Cors Servisi Eklendi<br>
+<br>
+☑️ Projenin [FrontEnd](https://github.com/u9urturk/ReCapProject-Rent-A-Car-Front-end) Geliştirme Süreci Başladı
    
      
 <br>   
