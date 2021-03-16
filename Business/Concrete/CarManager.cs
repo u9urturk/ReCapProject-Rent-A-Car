@@ -12,6 +12,7 @@ using Entities.DTOs;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -66,8 +67,9 @@ namespace Business.Concrete
         
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            return new SuccessDataResult<List<CarDetailDto>>( _carDal.GetCarDetails(),Messages.CarList);
+          return new SuccessDataResult<List<CarDetailDto>>( _carDal.GetCarDetails(),Messages.CarList);
         }
+
 
         public IDataResult<List<Car>> GetCarsByBrandId(int id)
         {
@@ -93,6 +95,7 @@ namespace Business.Concrete
            
         }
 
-       
+      
+
     }
 }

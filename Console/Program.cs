@@ -404,10 +404,15 @@ namespace ConsoleUI
         {
             foreach (var car in carManager.GetCarDetails().Data)
             {
-                Console.WriteLine($"     Araç Id : {car.CarId}\n" +
+                Console.WriteLine($"     Araç Id : {car.CarId}\n"+
+                                  $"     Plaka : {car.CarName}\n" +
                                   $"     Marka : {car.BrandName}\n " +
                                   $"     Model : {car.Desciription}\n " +
-                                  $"     Renk : {car.ColorName}\n");
+                                  $"     Model yılı : {car.ModelYear}\n" +
+                                  $"     Renk : {car.ColorName}\n" +
+                                  $"     Günlük Ücret : {car.DailyPrice}\n"+
+                                  "*****************************************");
+                                 
             }
         }
 
