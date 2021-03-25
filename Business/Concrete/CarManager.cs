@@ -65,20 +65,35 @@ namespace Business.Concrete
         }
 
         
+
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
           return new SuccessDataResult<List<CarDetailDto>>( _carDal.GetCarDetails(),Messages.CarList);
         }
 
-
-        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarDetailsFilter(int brandId, int colorId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c=>c.BrandId ==id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.BrandId == brandId && c.ColorId == colorId));
         }
 
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int brandId)
         {
-            return new SuccessDataResult<List<Car>>( _carDal.GetAll(c=>c.ColorId == id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c=>c.BrandId == brandId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarsByCarId(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c=>c.CarId == carId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int colorId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>( _carDal.GetCarDetails(c=>c.ColorId == colorId));
+        }
+
+        public IDataResult<List<ImagePathDto>> GetImageByCarId(int carId)
+        {
+            return new SuccessDataResult<List<ImagePathDto>>(_carDal.GetImageByCarId(im=>im.CarId == carId));
         }
 
         [SecuredOperation("Admin")]

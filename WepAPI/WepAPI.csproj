@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.12" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,6 +16,27 @@
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\09d42146-0347-4705-a4e5-adbdee953aa5_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\09f9befa-dd6a-43bf-820b-0b80611cdbb8_3_9_2021.jpg" />
+    <None Include="wwwroot\Images\2097d3c2-cd7c-4d21-8149-410029746ded_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\216087fd-a72e-49f7-a07f-2cb854c53101_3_9_2021.jpg" />
+    <None Include="wwwroot\Images\3fab3641-1a31-41aa-989e-97604a00f211_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\5bcac2e7-b0e7-48ae-879a-32d04e37dec9_3_9_2021.jpg" />
+    <None Include="wwwroot\Images\665b1ffd-6f36-4cec-8f4a-4e20f1a14927_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\7bfc9494-2f67-40ba-a37b-899547491978_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\7d65bcfc-84af-4d3d-b7f7-8fe2e093754f_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\9e8b5281-1cc7-4799-bbc0-14810a50501e_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\a4cce79c-4c20-4346-9e1a-00e509425097_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\c7ca4acf-abe0-4db6-835e-acbd2581dfb6_3_9_2021.jpg" />
+    <None Include="wwwroot\Images\cb671301-02e1-4d18-ae91-4bec6bc307ed_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\d29b612d-2017-4cdf-a513-c9689b8b851f_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\e99e1cea-e2b1-4a9e-9f69-06ca7dc06713_3_9_2021.jpg" />
+    <None Include="wwwroot\Images\ecedd3d3-269b-40a4-96db-91467854bd8f_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\fba8b942-e519-4a25-b3dd-0d30f151fdc5_3_21_2021.jpg" />
+    <None Include="wwwroot\Images\logo.jpg" />
   </ItemGroup>
 
 

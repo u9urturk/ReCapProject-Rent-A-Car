@@ -69,6 +69,8 @@ namespace ConsoleUI
                         "       9.Marka Sil\n"+
                         "       10.Ana Menüye Dön\n"+
                         "       11.Çıkış\n"+
+                        "       12.Test(getCarDetailByColorId)\n"+
+                        "       13.Test(GetImageByCarId)\n"+
                         "           Seçiminiz : "
                         );
                     int number2 = Convert.ToInt32(Console.ReadLine());
@@ -76,6 +78,12 @@ namespace ConsoleUI
 
                     switch (number2)
                     {
+                        case 13:
+                            GetCarImageByCarId(carManager);
+                            break;
+                        case 12:
+                            GetCarByColorId(carManager);
+                            break;
                         case 1:
                             AddingCar(carManager, brandManager, colorManager);
 
@@ -411,8 +419,30 @@ namespace ConsoleUI
                                   $"     Model yılı : {car.ModelYear}\n" +
                                   $"     Renk : {car.ColorName}\n" +
                                   $"     Günlük Ücret : {car.DailyPrice}\n"+
+                                    
                                   "*****************************************");
                                  
+            }
+        }
+
+        private static void GetCarByColorId(CarManager carManager)
+        {
+            Console.Write("   colorIdTest  : ");
+            int colorbyId = Convert.ToInt32(Console.ReadLine());
+            foreach (var car in carManager.GetCarsByColorId(colorbyId).Data)
+            {
+                Console.WriteLine($"  result   : {car.ColorName}");
+
+            }
+        }
+
+        private static void GetCarImageByCarId(CarManager carManager)
+        {
+            Console.Write("   carIdTest   :");
+            int imageByCarId = Convert.ToInt32(Console.ReadLine());
+            foreach (var image in carManager.GetImageByCarId(imageByCarId).Data)
+            {
+                Console.WriteLine($" result :  {image.ImagePath}");
             }
         }
 
