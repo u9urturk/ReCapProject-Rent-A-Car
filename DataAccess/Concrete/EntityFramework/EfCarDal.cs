@@ -56,6 +56,7 @@ namespace DataAccess.Concrete.EntityFramework
 
                              select new ImagePathDto
                              {
+                                 Id=im.Id,
                                  CarId = c.CarId,
                                  ImagePath = im.ImagePath
                              };

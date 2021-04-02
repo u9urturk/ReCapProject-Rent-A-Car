@@ -32,7 +32,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("deletebrand")]
-        public IActionResult DeleteUser(Brand brand)
+        public IActionResult DeleteBrand(Brand brand)
         {
             var result = _brandService.Delete(brand);
             if (result.Success)
@@ -42,8 +42,8 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("updatbrand")]
-        public IActionResult UpdateUser(Brand brand)
+        [HttpPost("updatebrand")]
+        public IActionResult UpdateBrand(Brand brand)
         {
             var result = _brandService.Update(brand);
             if (result.Success)
@@ -54,7 +54,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpGet("getallbrands")]
-        public IActionResult GetAllUser()
+        public IActionResult GetAllBrands()
         {
             var result = _brandService.GetAll();
             if (result.Success)

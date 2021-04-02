@@ -7,6 +7,7 @@ namespace Entities.DTOs
 {
     public class ImagePathDto:IDto
     {
+        public int Id { get; set; }
         public int CarId { get; set; }
         public string ImagePath { get; set; }
     }

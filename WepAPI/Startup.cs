@@ -38,6 +38,7 @@ namespace WepAPI
         {
             services.AddControllers();
             services.AddCors();
+            
 
             //services.AddSingleton<IRentalService, RentalManager>();
             //services.AddSingleton<IRentalDal,EfRentalDal>();
@@ -71,6 +72,7 @@ namespace WepAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStaticFiles();
 
             app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 

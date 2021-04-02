@@ -105,5 +105,11 @@ namespace Business.Concrete
             }
             return _carImageDal.GetAll(i=>i.CarId==id);
         }
+
+        public IDataResult<CarImage> GetById(int id)
+        {
+            var result = _carImageDal.Get(i => i.Id == id);
+            return new SuccessDataResult<CarImage>(result);
+        }
     }
 }
