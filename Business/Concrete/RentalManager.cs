@@ -58,17 +58,28 @@ namespace Business.Concrete
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetDetails(),Messages.RentalList);
         }
 
-        
+        public IDataResult<List<RentalDetailDto>> GetRentalDetailsByCustomerId(int customerId)
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetDetails(r => r.CustomerId == customerId));
+        }
+
+        public IDataResult<List<RentalDetailDto>> GetRentalDetailsByCarId(int carId)
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetDetails(r => r.CarId == carId));
+        }
+
         [ValidationAspect(typeof(RentalValidator))]
         [CacheRemoveAspect("IRentalService.Get")]
         public IResult RentCar(Rental rental)
         {
-            var result = _rentalDal.GetAll().FindAll(r=>r.ReturnDate==null);
+            var result = _rentalDal.GetDetails(r => r.CarId == rental.CarId);
+            var control = result.FindAll(g => g.RentDate == rental.RentDate);
+            var control2 = result.FindAll(g => g.ReturnDate == rental.ReturnDate);
 
-            if (result.Count >= 0 && result.SingleOrDefault(r => r.CarId == rental.CarId)==default(Rental))
+            if (control.Count < 0 && control2.Count < 0)
             {
                 
-                rental.RentDate = DateTime.Now;
+                
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalAdded);
 

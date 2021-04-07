@@ -6,18 +6,19 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DataAccess.Concrete.EntityFramework
 {
     public class EfRentalDal : EfEntityRepositoryBase<Rental, MyDatabaseContext>, IRentalDal
     {
-        public List<RentalDetailDto> GetDetails()
+        public List<RentalDetailDto> GetDetails(Expression<Func<Rental, bool>> filter = null)
         {
             using (MyDatabaseContext context = new MyDatabaseContext())
             {
                 
                 
-                    var result = from r in context.Rentals
+                    var result = from r in filter == null? context.Rentals : context.Rentals.Where(filter)
                                  join c in context.Cars
                                  on r.CarId equals c.CarId
                                  join b in context.Brands

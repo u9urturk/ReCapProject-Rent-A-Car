@@ -13,6 +13,8 @@ namespace Business.Abstract
         IResult ReturnedCar(Rental rental);
         IDataResult<List<Rental>> GetAllRentals();
         IDataResult<List<RentalDetailDto>> GetRentalDetails();
+        IDataResult<List<RentalDetailDto>> GetRentalDetailsByCustomerId(int customerId);
+        IDataResult<List<RentalDetailDto>> GetRentalDetailsByCarId(int carId);
         IResult AddTransactionalTest(Rental rental);
 
     }
