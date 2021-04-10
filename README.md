@@ -91,7 +91,7 @@ $ dotnet restore
 
 ## SQL Query    
 📘 [Query](https://github.com/u9urturk/ReCapProject-Rent-A-Car/blob/master/SQLQuery.sql)  ❗ İncelemek İsteyenler İçin Tablolarım.
-](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/Core/Extensions)
+
 
 ## Tables in Database
 <table>
