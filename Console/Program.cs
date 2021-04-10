@@ -357,7 +357,7 @@ namespace ConsoleUI
             decimal dailyPrice = Convert.ToDecimal(Console.ReadLine());
 
 
-            Car carAdd = new Car { BrandId = brandId, ColorId = colorId, CarName = carName, ModelYear = modelYear, DailyPrice = dailyPrice, Desciription = desciription };
+            Car carAdd = new Car { BrandId = brandId, ColorId = colorId, CarName = carName, ModelYear = modelYear, DailyPrice = dailyPrice, Description = desciription };
             carManager.Add(carAdd);
 
             Console.WriteLine("   ");

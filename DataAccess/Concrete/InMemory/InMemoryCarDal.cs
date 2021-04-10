@@ -18,11 +18,11 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car{CarId =1,BrandId=1,ColorId=1,ModelYear=2012,DailyPrice=225,Desciription="Sedan"},
-                new Car{CarId =2,BrandId=1,ColorId=2,ModelYear=2016,DailyPrice=260,Desciription="Hatchback"},
-                new Car{CarId =3,BrandId=2,ColorId=3,ModelYear=2018,DailyPrice=280,Desciription="Station Wagon"},
-                new Car{CarId =4,BrandId=2,ColorId=1,ModelYear=2013,DailyPrice=250,Desciription="Cabrio"},
-                new Car{CarId =5,BrandId=3,ColorId=2,ModelYear=2020,DailyPrice=320,Desciription="SUV"}
+                new Car{CarId =1,BrandId=1,ColorId=1,ModelYear=2012,DailyPrice=225,Description="Sedan"},
+                new Car{CarId =2,BrandId=1,ColorId=2,ModelYear=2016,DailyPrice=260,Description="Hatchback"},
+                new Car{CarId =3,BrandId=2,ColorId=3,ModelYear=2018,DailyPrice=280,Description="Station Wagon"},
+                new Car{CarId =4,BrandId=2,ColorId=1,ModelYear=2013,DailyPrice=250,Description="Cabrio"},
+                new Car{CarId =5,BrandId=3,ColorId=2,ModelYear=2020,DailyPrice=320,Description="SUV"}
 
             };
 
@@ -83,7 +83,7 @@ namespace DataAccess.Concrete.InMemory
             carToUpdate.ColorId = car.ColorId;
             carToUpdate.ModelYear = car.ModelYear;
             carToUpdate.DailyPrice = car.DailyPrice;
-            carToUpdate.Desciription = car.Desciription;
+            carToUpdate.Description = car.Description;
         }
 
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)

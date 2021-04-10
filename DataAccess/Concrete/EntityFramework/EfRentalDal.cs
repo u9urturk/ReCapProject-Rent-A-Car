@@ -35,7 +35,7 @@ namespace DataAccess.Concrete.EntityFramework
                                      Id = r.Id,
                                      CarId = c.CarId,
                                      CarBrand = b.BrandName,
-                                     CarModel = c.Desciription,
+                                     CarModel = c.Description,
                                      CustomerCompany = cstmr.CompanyName,
                                      CustomerName = u.FirstName,
                                      CustomerLastName = u.LastName,
