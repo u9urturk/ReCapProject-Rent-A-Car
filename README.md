@@ -84,7 +84,7 @@ $ dotnet restore
 <br>
 ☑️ Projenin [FrontEnd](https://github.com/u9urturk/ReCapProject-Rent-A-Car-Front-end) Geliştirme Süreci Başladı<br>
 
-☑️ [Custom Error Middleware Eklendi](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/Core/Extensions)
+☑️ [Custom Error Middleware ](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/Core/Extensions) Eklendi
    
      
 <br>   
