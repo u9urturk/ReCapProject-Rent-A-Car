@@ -82,7 +82,9 @@ $ dotnet restore
   
 ☑️ Cors Servisi Eklendi<br>
 <br>
-☑️ Projenin [FrontEnd](https://github.com/u9urturk/ReCapProject-Rent-A-Car-Front-end) Geliştirme Süreci Başladı
+☑️ Projenin [FrontEnd](https://github.com/u9urturk/ReCapProject-Rent-A-Car-Front-end) Geliştirme Süreci Başladı<br>
+
+☑️ [Custom Error Middleware ](https://github.com/u9urturk/ReCapProject-Rent-A-Car/tree/master/Core/Extensions) Eklendi
    
      
 <br>   
