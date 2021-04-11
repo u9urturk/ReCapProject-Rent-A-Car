@@ -59,8 +59,17 @@ namespace WepAPI.Controllers
             var result = _carImageService.GetById(id);
             if (result.Success)
             {
-                var b = System.IO.File.ReadAllBytes(result.Data.ImagePath);
-                return File(b, "image/jpeg");
+                if (result.Data != null)
+                {
+                    var b = System.IO.File.ReadAllBytes(result.Data.ImagePath);
+                    return File(b, "image/jpeg");
+                }
+                else
+                {
+                    var b = System.IO.File.ReadAllBytes(@"C:\Users\Ugur\source\repos\ReCapProject\WepAPI\wwwroot\Images\logo2.gif");
+                    return File(b, "image/gif");
+                }
+                
             }
             return BadRequest(result);
         }

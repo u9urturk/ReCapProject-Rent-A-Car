@@ -14,6 +14,6 @@ namespace Entities.Concrete
 
        
 
-        public Car Car { get; set; }
+       
     }
 }
