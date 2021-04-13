@@ -14,6 +14,6 @@ namespace Entities.Concrete
 
        
 
-       
+        
     }
 }

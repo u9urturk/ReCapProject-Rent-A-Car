@@ -47,7 +47,7 @@ namespace Business.Constans
         public static string UserNotFound = "KULLANICI BULUNAMADI";
         public static string PasswordError = "PAROLA HATASI";
         public static string UserAlreadyExists = "KULLANICI MEVCUT";
-        public static string AccessTokenCreated = "TOKEN EKLENDİ";
+        public static string AccessTokenCreated = "Giriş Yapıldı";
         public static string SuccessfulLogin = "BAŞARILI GİRİŞ";
         public static string UnexpectedError = "BEKLENMEDİK BİR HATA OLUŞTU. İŞLEMLER GERİ ALINIRYOR...";
         internal static string ClaimAdded;
