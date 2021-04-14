@@ -1,12 +1,8 @@
 ﻿
-using Business.Abstract;
 using Business.Concrete;
 using Core.Entities.Concrete;
-using Core.Utilities.Security.Jwt.Abstract;
 using DataAccess.Concrete.EntityFramework;
-using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
-using Entities.DTOs;
 using System; 
 
 namespace ConsoleUI
@@ -22,7 +18,7 @@ namespace ConsoleUI
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             UserManager userManager = new UserManager(new EfUserDal());
             OperationClaimManager operationClaimsManager = new OperationClaimManager(new EfOperationClaim());
-            UserOperationClaimManager userOperationClaimManager = new UserOperationClaimManager(new EfUserOperationClaimDal());
+            UserOperationClaimManager userOperationClaimManager = new UserOperationClaimManager(new EfUserOperationClaimInfoDal());
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             
 

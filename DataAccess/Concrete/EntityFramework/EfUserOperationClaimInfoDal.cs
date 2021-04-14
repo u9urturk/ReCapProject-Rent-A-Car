@@ -2,16 +2,14 @@
 using Core.Entities.Concrete;
 using DataAccess.Abstract;
 using Entities.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Collections.Generic;
+
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfUserOperationClaimDal : EfEntityRepositoryBase<UserOperationClaim,MyDatabaseContext>,IUserOperationClaimDal
+    public class EfUserOperationClaimInfoDal : EfEntityRepositoryBase<UserOperationClaim, MyDatabaseContext>, IUserOperationClaimInfoDal
     {
-                
         public List<UserClaimForUserInfoDto> GetUserDetails()
         {
             using (MyDatabaseContext context = new MyDatabaseContext())
@@ -30,7 +28,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  LastName = us.LastName,
                                  Email = us.Email,
                                  ClaimName = oc.Name
-                                 
+
 
                              };
                 return result.ToList();

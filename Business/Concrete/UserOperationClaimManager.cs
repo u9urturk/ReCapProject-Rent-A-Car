@@ -12,8 +12,8 @@ namespace Business.Concrete
 {
     public class UserOperationClaimManager : IUserOperationClaimService
     {
-        IUserOperationClaimDal _userOperationClaimDal;
-        public UserOperationClaimManager(IUserOperationClaimDal userOperationClaimDal)
+        IUserOperationClaimInfoDal _userOperationClaimDal;
+        public UserOperationClaimManager(IUserOperationClaimInfoDal userOperationClaimDal)
         {
             _userOperationClaimDal = userOperationClaimDal;
         }

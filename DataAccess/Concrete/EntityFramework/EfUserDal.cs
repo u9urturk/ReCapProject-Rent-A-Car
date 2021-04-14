@@ -7,11 +7,31 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Entities.DTOs;
+using System.Linq.Expressions;
+using Core.Entities.Concrete.Dto;
 
 namespace DataAccess.Concrete.EntityFramework
 {
     public class EfUserDal : EfEntityRepositoryBase<User, MyDatabaseContext>, IUserDal
     {
+        public List<UserOperationClaimDto> GetClaimByUserId(Expression<Func<UserOperationClaim, bool>> filter = null)
+        {
+            using (MyDatabaseContext context = new MyDatabaseContext())
+            {
+                var result = from u in filter == null ? context.UserOperationClaims : context.UserOperationClaims.Where(filter)
+                             join o in context.OperationClaims
+                             on u.OperationClaimId equals o.Id
+
+                             select new UserOperationClaimDto
+                             {
+                                 UserId = u.UserId,
+                                 Claim = o.Name
+                             };
+
+                return result.ToList();
+            }
+        }
+
         public List<OperationClaim> GetClaims(User user)
         {
             using (var context = new MyDatabaseContext())

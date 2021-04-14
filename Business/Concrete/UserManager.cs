@@ -2,6 +2,7 @@
 using Business.BusinessAspect.Autofac;
 using Business.Constans;
 using Core.Entities.Concrete;
+using Core.Entities.Concrete.Dto;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.DTOs;
@@ -20,6 +21,7 @@ namespace Business.Concrete
         {
             _userDal = userDal;
         }
+
 
         
         public IDataResult<List<OperationClaim>> GetClaims(User user)
@@ -49,6 +51,11 @@ namespace Business.Concrete
         public IDataResult<List<UserClaimForUserInfoDto>> GetUserDetail()
         {
             return new SuccessDataResult<List<UserClaimForUserInfoDto>>(_userDal.UserDetail());
+        }
+
+        public IDataResult<List<UserOperationClaimDto>> GetClaimByUserId(int userId)
+        {
+            return new SuccessDataResult<List<UserOperationClaimDto>>(_userDal.GetClaimByUserId(x => x.UserId == userId));
         }
     }
 }
