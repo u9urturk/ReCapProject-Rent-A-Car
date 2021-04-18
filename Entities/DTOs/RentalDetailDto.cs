@@ -16,6 +16,7 @@ namespace Entities.DTOs
         public string CustomerCompany { get; set; }
         public string CarBrand { get; set; }
         public string CarModel { get; set; }
+        
         public string CustomerEmail { get; set; }
         public int CustomerId { get; set; }
         public decimal DailyRentPrice { get; set; }

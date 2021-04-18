@@ -8,6 +8,11 @@ namespace Business.Constans
 {
     public static class Messages
     {
+        public static string NotFindeksPoint = "Yetersiz Findeks Puanı !";
+        public static string MaxFindeksPointExceeded = "Tebrikler !\n"+"Max Findeks Puanına Ulaşıldı.";
+        public static string FindeksPointDeleted = "Findeks Puanı Silindi.";
+        public static string FindeksPointUpdated = "Findeks Puanı Güncellendi.";
+        public static string FindeksPointCreated = "Findeks Puanı Oluşturuldu.";
         public static string CarAdded = "Araç eklendi";
         public static string CarNotAdded ="Araç ekleme işlemi gerçekleştirlemedi"+"\n"+
                                             "Araba ile ilgili açıklama en az iki karakter içermelidir."+"\n" +

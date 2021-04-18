@@ -20,6 +20,7 @@ namespace ConsoleUI
             OperationClaimManager operationClaimsManager = new OperationClaimManager(new EfOperationClaim());
             UserOperationClaimManager userOperationClaimManager = new UserOperationClaimManager(new EfUserOperationClaimInfoDal());
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            UserFindeksPointManager userFindeksPointManager = new UserFindeksPointManager(new EfUserFindeksPointDal());
             
 
             
@@ -253,6 +254,7 @@ namespace ConsoleUI
                        "       3.Yetkileri Listele\n"+
                        "       4.Ana Menüye Dön\n" +
                        "       5.Çıkış\n" +
+                       "       6.Test\n"+   
                        "           Seçiminiz : "
                        );
                     int number4 = Convert.ToInt32(Console.ReadLine());
@@ -282,6 +284,11 @@ namespace ConsoleUI
                         case 5:
                             exit = false;
                             break;
+                        case 6:
+                            Test(userFindeksPointManager);
+                            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+                            Console.ReadKey();
+                            break;
 
 
                     }
@@ -299,6 +306,14 @@ namespace ConsoleUI
         }
 
         // Input Oluşumu Ve Metot Tasarımı 
+
+        private static void Test(UserFindeksPointManager userFindeksPointManager)
+        {
+            Console.Write("       Customer Id :");
+            int customerId = Convert.ToInt32(Console.ReadLine());
+            var x = userFindeksPointManager.GetFindeksPointByUserId(customerId);
+            Console.WriteLine(x.Data.FindeksPoint);
+        }
         private static void RentCar(RentalManager rentalManager,CarManager carManager,CustomerManager customerManager)
         {
             Console.WriteLine("                    <<<<<<     HOŞ GELDİNİZ     >>>>>>>");

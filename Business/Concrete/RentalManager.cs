@@ -3,21 +3,15 @@ using Business.Constans;
 using Core.Utilities;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Data.Common;
-using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 using Core.Aspects.Autofac.Validation;
 using Business.ValidationRules.FluentValidation;
 using Business.BusinessAspect.Autofac;
 using Core.Aspects.Autofac.Cache;
-using Core.Aspects.Autofac.Performance;
+
 
 namespace Business.Concrete
 {
@@ -30,7 +24,6 @@ namespace Business.Concrete
         {
             _rentalDal = rentalDal;
         }
-
         public IResult AddTransactionalTest(Rental rental)
         {
             _rentalDal.Add(rental);
@@ -76,7 +69,7 @@ namespace Business.Concrete
             var control = result.FindAll(g => g.RentDate == rental.RentDate);
             var control2 = result.FindAll(g => g.ReturnDate == rental.ReturnDate);
 
-            if (control.Count < 0 && control2.Count < 0)
+            if (control.Count <= 0 && control2.Count <= 0)
             {
                 
                 

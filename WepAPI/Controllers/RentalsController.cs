@@ -1,12 +1,7 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace WepAPI.Controllers
 {
@@ -15,6 +10,7 @@ namespace WepAPI.Controllers
     public class RentalsController : ControllerBase
     {
         IRentalService _rentalService;
+        
 
         public RentalsController(IRentalService rentalService)
         {
@@ -27,12 +23,16 @@ namespace WepAPI.Controllers
         
         public IActionResult RentCar(Rental rental)
         {
+            
+
             var result = _rentalService.RentCar(rental);
             if (result.Success)
             {
+
                 return Ok(result);
             }
-            return BadRequest(result);
+            return BadRequest(result.Message);
+
         }
 
         [HttpPost("returnedcar")]

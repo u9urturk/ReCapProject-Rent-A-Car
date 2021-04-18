@@ -88,7 +88,7 @@ namespace Business.Concrete
         private IResult CheckIfImageLimitExceeded(int carid)
         {
             var result = _carImageDal.GetAll(i=> i.CarId == carid).Count;
-            if (result >= 5)
+            if (result >= 4)
             {
                 return new ErrorResult(Messages.CarImageLimitExceeded);
             }

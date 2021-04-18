@@ -37,6 +37,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                        DailyPrice=c.DailyPrice,
                                                        Desciription=c.Description,
                                                        ModelYear = c.ModelYear,
+                                                       CarFindeksPoint = c.CarFindeksPoint
                                                       
                                                        
         
