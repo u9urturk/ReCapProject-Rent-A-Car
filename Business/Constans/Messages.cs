@@ -8,6 +8,9 @@ namespace Business.Constans
 {
     public static class Messages
     {
+        public static string CreditCardUpdated = "Kredi Kartı Güncellendi";
+        public static string CreditCardDeleted = "Kredi Kartı Silindi";
+        public static string CreditCardCreated = "Kredi Kartı Kayıt Edildi";
         public static string NotFindeksPoint = "Yetersiz Findeks Puanı !";
         public static string MaxFindeksPointExceeded = "Tebrikler !\n"+"Max Findeks Puanına Ulaşıldı.";
         public static string FindeksPointDeleted = "Findeks Puanı Silindi.";

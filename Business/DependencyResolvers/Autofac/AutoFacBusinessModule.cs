@@ -48,6 +48,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<UserFindeksPointManager>().As<IUserFindexPointService>();
             builder.RegisterType<EfUserFindeksPointDal>().As<IUserFindeksPointDal>();
 
+            builder.RegisterType<CreditCardManager>().As<ICreditCardService>();
+            builder.RegisterType<EfCreditCardDal>().As<ICreditCardDal>();
+
 
 
 

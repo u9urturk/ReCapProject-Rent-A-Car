@@ -44,7 +44,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  RentDate = r.RentDate,
                                  ReturnDate = r.ReturnDate,
                                  CarName = c.CarName,
-                                 CustomerId = cstmr.Id
+                                 CustomerId = cstmr.Id,
+                                 Payment = r.Payment
                                  
 
                                      
