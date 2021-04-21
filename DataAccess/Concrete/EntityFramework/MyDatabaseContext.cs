@@ -30,6 +30,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<User> Users { get; set; }
         public DbSet<UserFindeksPoint> CustomerFindeks { get; set; }
         public DbSet<CreditCard> CreditCards { get; set; }
+        public DbSet<ProfileImage> ProfileImages { get; set; }
     }
 
 }

@@ -28,7 +28,7 @@ namespace Business.Concrete
         }
         
         //[SecuredOperation("Admin")]
-        //[ValidationAspect(typeof(CarImageValidator))]
+        [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfImageLimitExceeded(carImage.CarId));
@@ -44,7 +44,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ImageAdded);
         }
 
-        [SecuredOperation("Admin")]
+        //[SecuredOperation("Admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Delete(CarImage carImage)
         {
@@ -54,7 +54,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        [SecuredOperation("Admin")]
+        //[SecuredOperation("Admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IDataResult<CarImage> Get(int id)
         {
@@ -73,7 +73,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(id));
         }
 
-        [SecuredOperation("Admin")]
+        //[SecuredOperation("Admin")]
         public IResult Update(IFormFile file, CarImage carImage)
         {
             carImage.ImagePath = FileHelper.Update(_carImageDal.Get(i => i.Id == carImage.Id).ImagePath, file);

@@ -51,6 +51,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CreditCardManager>().As<ICreditCardService>();
             builder.RegisterType<EfCreditCardDal>().As<ICreditCardDal>();
 
+            builder.RegisterType<ProfileImagesManager>().As<IProfileImagesService>();
+            builder.RegisterType<EfProfileImagesDal>().As<IProfileImagesDal>();
+
 
 
 

@@ -8,6 +8,8 @@ namespace Business.Constans
 {
     public static class Messages
     {
+        public static string ImageDeleted = "Görsel Silindi";
+        public static string ProfileImageLimitExceeded = "Yalnızca Bir Profil Fotoğrafınız Olabilir";
         public static string UpdatedNo = "Güncelleme Başarısız";
         public static string UpdatedOk = "Güncelleme Başarılı";
         public static string CreditCardUpdated = "Kredi Kartı Güncellendi";
