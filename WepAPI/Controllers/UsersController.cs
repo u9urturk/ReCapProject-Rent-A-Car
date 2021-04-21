@@ -1,10 +1,7 @@
 ﻿using Business.Abstract;
-using Microsoft.AspNetCore.Http;
+using Core.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace WepAPI.Controllers
 {
@@ -24,6 +21,28 @@ namespace WepAPI.Controllers
         public IActionResult GetAll()
         {
             var result = _userService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getuserbyuserid")]
+        public IActionResult GetUserByUserId(int userid)
+        {
+            var result = _userService.GetUserByUserId(userid);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("userupdate")]
+        public IActionResult UserUpdate(User user)
+        {
+            var result = _userService.Update(user);
             if (result.Success)
             {
                 return Ok(result);

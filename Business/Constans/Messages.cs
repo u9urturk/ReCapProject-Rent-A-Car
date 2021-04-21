@@ -8,6 +8,8 @@ namespace Business.Constans
 {
     public static class Messages
     {
+        public static string UpdatedNo = "Güncelleme Başarısız";
+        public static string UpdatedOk = "Güncelleme Başarılı";
         public static string CreditCardUpdated = "Kredi Kartı Güncellendi";
         public static string CreditCardDeleted = "Kredi Kartı Silindi";
         public static string CreditCardCreated = "Kredi Kartı Kayıt Edildi";

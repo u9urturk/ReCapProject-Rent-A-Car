@@ -24,7 +24,7 @@ namespace WepAPI.Controllers
             var result = _carImageService.Add(file,carImage);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
             return BadRequest(result);
         }
