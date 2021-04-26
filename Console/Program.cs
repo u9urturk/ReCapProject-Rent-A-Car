@@ -381,13 +381,13 @@ namespace ConsoleUI
 
         private static void AddBrand(BrandManager brandManager)
         {
-            Console.Write("     Marka ismini belirtiniz : ");
-            string brandName = Console.ReadLine();
+            //Console.Write("     Marka ismini belirtiniz : ");
+            //string brandName = Console.ReadLine();
 
-            Brand brandAdd = new Brand { BrandName = brandName };
-            brandManager.Add(brandAdd);
-            Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
-            Console.ReadKey();
+            //Brand brandAdd = new Brand { BrandName = brandName };
+            //brandManager.Add(brandAdd);
+            //Console.WriteLine("     İşleminiz başarı ile gerçekleşti , Devam etmek için herhangi bir tuşa basabilirsiniz....");
+            //Console.ReadKey();
         }
 
         private static void AddColor(ColorManager colorManager)

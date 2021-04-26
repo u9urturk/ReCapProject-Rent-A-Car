@@ -26,8 +26,10 @@ namespace Business.Concrete
         {
             _carImageDal = carImageDal;
         }
-        
-        //[SecuredOperation("Admin")]
+
+        string entity = "car";
+
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage carImage)
         {
@@ -37,21 +39,21 @@ namespace Business.Concrete
                 return result;
             }
 
-
-            carImage.ImagePath = FileHelper.Add(file);
+            
+            carImage.ImagePath = FileHelper.Add(file,entity);
             carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
             return new SuccessResult(Messages.ImageAdded);
         }
 
-        //[SecuredOperation("Admin")]
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Delete(CarImage carImage)
         {
 
             FileHelper.Delete(carImage.ImagePath);
             _carImageDal.Delete(carImage);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ImageDeleted);
         }
 
         //[SecuredOperation("Admin")]
@@ -73,13 +75,14 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(id));
         }
 
-        //[SecuredOperation("Admin")]
+        [SecuredOperation("Admin")]
         public IResult Update(IFormFile file, CarImage carImage)
         {
-            carImage.ImagePath = FileHelper.Update(_carImageDal.Get(i => i.Id == carImage.Id).ImagePath, file);
+            
+            carImage.ImagePath = FileHelper.Update(_carImageDal.Get(i => i.Id == carImage.Id).ImagePath, file,entity);
             carImage.Date = DateTime.Now;
             _carImageDal.Update(carImage);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ImageUpdated);
         }
 
 

@@ -40,5 +40,10 @@
     <None Include="wwwroot\Images\logo.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\BrandLogo\" />
+    <Folder Include="wwwroot\ColorLogo\" />
+  </ItemGroup>
+
 
 </Project>

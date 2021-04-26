@@ -8,6 +8,7 @@ namespace Business.Constans
 {
     public static class Messages
     {
+        public static string ImageUpdated = "Görsel Güncellendi";
         public static string ImageDeleted = "Görsel Silindi";
         public static string ProfileImageLimitExceeded = "Yalnızca Bir Profil Fotoğrafınız Olabilir";
         public static string UpdatedNo = "Güncelleme Başarısız";
@@ -52,7 +53,7 @@ namespace Business.Constans
         public static string Added = "EKLENDİ";
         public static string Deleted = "SİLİNDİ";
         public static string Updated = "GÜNCELLENDİ";
-        public static string CarImageLimitExceeded = "Bir araç için en fazla 5 fotoğraf yüklenebilir.";
+        public static string CarImageLimitExceeded = "Bir araç için en fazla 4 fotoğraf yüklenebilir.";
         public static string ImageAdded = "GÖRSEL EKLENDİ";
         public static string AuthorizationDenied = "YETKİNİZ YOK ";
         public static string UserRegistered = "KAYIT OLDU";

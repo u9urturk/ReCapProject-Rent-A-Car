@@ -23,6 +23,8 @@ namespace Business.Concrete
             _profileImageDal = profileImagesDal;
         }
 
+        string entity = "profile";
+
         public IResult Add(IFormFile file, ProfileImage profileImage)
         {
             IResult result = BusinessRules.Run(CheckIfImageLimitExceeded(profileImage.UserId));
@@ -32,7 +34,7 @@ namespace Business.Concrete
             }
 
 
-            profileImage.ImagePath = FileHelperProfile.Add(file);
+            profileImage.ImagePath = FileHelper.Add(file,entity);
             profileImage.Date = DateTime.Now;
             _profileImageDal.Add(profileImage);
             return new SuccessResult(Messages.ImageAdded);
@@ -40,7 +42,7 @@ namespace Business.Concrete
 
         public IResult Delete(ProfileImage profileImages)
         {
-            FileHelperProfile.Delete(profileImages.ImagePath);
+            FileHelper.Delete(profileImages.ImagePath);
             _profileImageDal.Delete(profileImages);
             return new SuccessResult(Messages.ImageDeleted);
         }
@@ -63,7 +65,7 @@ namespace Business.Concrete
 
         public IResult Update(IFormFile file, ProfileImage profileImages)
         {
-            profileImages.ImagePath = FileHelperProfile.Update(_profileImageDal.Get(i => i.Id == profileImages.Id).ImagePath, file);
+            profileImages.ImagePath = FileHelper.Update(_profileImageDal.Get(i => i.Id == profileImages.Id).ImagePath, file,entity);
             profileImages.Date = DateTime.Now;
             _profileImageDal.Update(profileImages);
             return new SuccessResult(Messages.UpdatedOk);
