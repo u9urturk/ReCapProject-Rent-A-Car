@@ -33,8 +33,8 @@ namespace Core.Aspects.Autofac.Performance
             if (_stopwatch.Elapsed.Seconds>_interval)
             {
                 //Performans bilgisi belirtilen mail hesabına iletilecek.
-                SendMail sendMail = new SendMail();
-                sendMail.Send($"Performance : {invocation.Method.DeclaringType.FullName}.{invocation.Method.Name}-->{_stopwatch.Elapsed.TotalSeconds}");
+                
+                SendMail.Send($"Performance : {invocation.Method.DeclaringType.FullName}.{invocation.Method.Name}-->{_stopwatch.Elapsed.TotalSeconds}");
             }
             _stopwatch.Reset();
 

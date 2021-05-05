@@ -49,9 +49,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userDal.GetAll());
         }
 
-        public IDataResult<List<UserClaimForUserInfoDto>> GetUserDetail()
+        public IDataResult<List<UserClaimForUserInfoDto>> GetAllUserDetail()
         {
-            return new SuccessDataResult<List<UserClaimForUserInfoDto>>(_userDal.UserDetail());
+            return new SuccessDataResult<List<UserClaimForUserInfoDto>>(_userDal.GetAllUserDetail());
         }
 
         public IDataResult<List<UserOperationClaimDto>> GetClaimByUserId(int userId)

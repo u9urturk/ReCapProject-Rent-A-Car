@@ -54,6 +54,12 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<ProfileImagesManager>().As<IProfileImagesService>();
             builder.RegisterType<EfProfileImagesDal>().As<IProfileImagesDal>();
 
+            builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>();
+            builder.RegisterType<EfOperationClaim>().As<IOperationClaimDal>();
+
+            builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>();
+            builder.RegisterType<EfUserOperationClaimInfoDal>().As<IUserOperationClaimInfoDal>();
+
 
 
 

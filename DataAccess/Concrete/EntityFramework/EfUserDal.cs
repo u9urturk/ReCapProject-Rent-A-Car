@@ -47,7 +47,7 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public List<UserClaimForUserInfoDto> UserDetail()
+        public List<UserClaimForUserInfoDto> GetAllUserDetail()
         {
             using (var context = new MyDatabaseContext())
             {

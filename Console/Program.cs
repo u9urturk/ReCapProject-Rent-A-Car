@@ -568,7 +568,7 @@ namespace ConsoleUI
 
         private static void UserDetail(UserManager userManager)
         {
-            foreach (var user in userManager.GetUserDetail().Data)
+            foreach (var user in userManager.GetAllUserDetail().Data)
             {
                 Console.WriteLine($"     Kullanıcı ID : {user.UserId}\n" +
                                   $"     İsim : {user.FirstName}\n" +

@@ -34,9 +34,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<UserOperationClaim>>(_userOperationClaimDal.GetAll());
         }
 
-        public IDataResult<List<UserClaimForUserInfoDto>> GetUser()
+        public IDataResult<List<UserClaimForUserInfoDto>> GetUserClaimByUserId(int userId)
         {
-            return new SuccessDataResult<List<UserClaimForUserInfoDto>>(_userOperationClaimDal.GetUserDetails());
+            return new SuccessDataResult<List<UserClaimForUserInfoDto>>(_userOperationClaimDal.GetUserClaimByUserId(u=>u.UserId == userId));
         }
 
         public IResult UpdateUserClaim(UserOperationClaim userOperationClaim)

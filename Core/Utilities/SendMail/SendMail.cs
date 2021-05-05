@@ -8,7 +8,7 @@ namespace Core.Utilities.SendMail
 {
     public  class SendMail:ISendMail
     {
-        public   bool Send(string MailContent)
+        public static   bool Send(string MailContent)
         {
             try
             {

@@ -28,6 +28,17 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getalluserdetail")]
+        public IActionResult GetAllUserDetail()
+        {
+            var result = _userService.GetAllUserDetail();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpGet("getuserbyuserid")]
         public IActionResult GetUserByUserId(int userid)
         {
