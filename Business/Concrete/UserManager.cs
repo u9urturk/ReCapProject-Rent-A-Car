@@ -9,7 +9,7 @@ using DataAccess.Abstract;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace Business.Concrete
 {
@@ -18,9 +18,12 @@ namespace Business.Concrete
     {
         IUserDal _userDal;
 
-        public UserManager(IUserDal userDal)
+        IUserOperationClaimInfoDal _userOperationClaimInfoDal;
+
+        public UserManager(IUserDal userDal,IUserOperationClaimInfoDal userOperationClaimInfoDal)
         {
             _userDal = userDal;
+            _userOperationClaimInfoDal = userOperationClaimInfoDal;
         }
 
 
@@ -34,6 +37,11 @@ namespace Business.Concrete
         public IResult Add(User user)
         {
             _userDal.Add(user);
+
+            var userClaim = new UserOperationClaim();
+            userClaim.OperationClaimId = 2;
+            userClaim.UserId = user.Id;
+            _userOperationClaimInfoDal.Add(userClaim);
             return new SuccessResult(Messages.NewUserAdded);
         }
 

@@ -24,6 +24,7 @@ namespace DataAccess.Concrete.EntityFramework
 
                              select new UserClaimForUserInfoDto
                              {
+                                 Id = uoc.Id,
                                  UserId = us.Id,
                                  FirstName = us.FirstName,
                                  LastName = us.LastName,
